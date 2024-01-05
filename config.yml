@@ -26,7 +26,7 @@ menu:
 
 params:
     description: "I'm a scientist at AWS AI Research and Education Labs. I earned her Ph.D. in biophysics from Harvard University under the guidance of Prof. Xiaowei Zhuang. Throughout my doctoral journey, I delved into pioneering super-resolution imaging techniques. I have contributed to the academic community, authoring over 20 peer-reviewed papers in prestigious journals and conferences. My research is published in esteemed journals such as Science, Cell, Nature Communications, and Proceedings of the National Academy of Sciences, or at top-tier conferences including NeurIPS, ICCV, and ICML. My research journey encompasses a wide spectrum of fields, reflecting my versatility and dedication to interdisciplinary work. My primary areas of focus include: (1) Foundations in Machine Learning (2) Multimodal Foundation Models and Generative AI (3) Natural Science Discoveries (4) Innovative Machine Learning Algorithm Development in Microscopy. (5) Remote Sensing Foundation Models for Sustainability."
-    author: Name
+    author: Boran Han
     # googleAnalyticsID: "G-XXXXX"
     DateFormat: "January 2006"
     defaultTheme: light
@@ -49,12 +49,12 @@ params:
     math: true
     profileMode:
           enabled: true
-          title: Boran Ha 
+          title: Boran Han
           subtitle: "I'm a scientist at AWS AI Research and Education Labs. I earned her Ph.D. in biophysics from Harvard University under the guidance of Prof. Xiaowei Zhuang. Throughout my doctoral journey, I delved into pioneering super-resolution imaging techniques. I have contributed to the academic community, authoring over 20 peer-reviewed papers in prestigious journals and conferences. My research is published in esteemed journals such as Science, Cell, Nature Communications, and Proceedings of the National Academy of Sciences, or at top-tier conferences including NeurIPS, ICCV, and ICML. My research journey encompasses a wide spectrum of fields, reflecting my versatility and dedication to interdisciplinary work. My primary areas of focus include: (1) Foundations in Machine Learning (2) Multimodal Foundation Models and Generative AI (3) Natural Science Discoveries (4) Innovative Machine Learning Algorithm Development in Microscopy. (5) Remote Sensing Foundation Models for Sustainability."
           imageUrl: "picture.jpeg"
           imageWidth: 160
           imageHeight: 160
-          imageTitle: Prof. Name
+          imageTitle: Boran Han
           buttons:
             - name: Papers
               url: papers/
@@ -72,21 +72,19 @@ params:
         - name: CV
           url: cv.pdf
         - name: Email
-          url: mailto:pascal.michaillat@gmail.com
+          url: boranhan.dl@gmail.com
         - name: Location
           url: location/
         - name: Office Hours
           url: officehours/
         - name: Google Scholar
-          url: https://scholar.google.com/citations?user=cL23w-4AAAAJ
-        - name: YouTube
-          url: https://www.youtube.com/@pmichaillat
+          url: https://scholar.google.com/citations?user=Prwxh24AAAAJ&hl=en
+        - name: LinkedIn
+          url: https://www.linkedin.com/in/boran-han-ba753966/
         - name: GitHub
-          url: https://github.com/pmichaillat
-        - name: Substack
-          url: https://pmichaillat.substack.com
+          url: https://github.com/boranhan
         - name: Twitter
-          url: https://twitter.com/pmichaillat
+          url: https://twitter.com/BoranHan1742511
 
     assets:
         disableHLJS: true
