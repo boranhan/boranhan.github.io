@@ -51,7 +51,7 @@ params:
           enabled: true
           title: Boran Han
           subtitle: "I'm a scientist at AWS AI Research and Education Labs. I earned her Ph.D. in biophysics from Harvard University under the guidance of Prof. Xiaowei Zhuang. Throughout my doctoral journey, I delved into pioneering super-resolution imaging techniques. I have contributed to the academic community, authoring over 20 peer-reviewed papers in prestigious journals and conferences. My research is published in esteemed journals such as Science, Cell, Nature Communications, and Proceedings of the National Academy of Sciences, or at top-tier conferences including NeurIPS, ICCV, and ICML. My research journey encompasses a wide spectrum of fields, reflecting my versatility and dedication to interdisciplinary work. My primary areas of focus include: (1) Foundations in Machine Learning (2) Multimodal Foundation Models and Generative AI (3) Natural Science Discoveries (4) Innovative Machine Learning Algorithm Development in Microscopy. (5) Remote Sensing Foundation Models for Sustainability."
-          imageUrl: "image.png"
+          imageUrl: "Image.png"
           imageWidth: 160
           imageHeight: 160
           imageTitle: Boran Han
