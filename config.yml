@@ -60,23 +60,23 @@ params:
               url: papers/
             - name: Courses
               url: courses/
-            - name: News
+            - name: Data
               url: data/
             - name: Newsletter
               url: https://pmichaillat.substack.com
-            - name: Talks
+            - name: Tags
               url: tags/
-            - name: Gallery
+            - name: Archive
               url: archive/
     socialIcons:
-        # - name: CV
-        #  url: cv.pdf
+        - name: CV
+          url: cv.pdf
         - name: Email
           url: boranhan.dl@gmail.com
-        #- name: Location
-        #  url: location/
-        #- name: Office Hours
-        #  url: officehours/
+        - name: Location
+          url: location/
+        - name: Office Hours
+          url: officehours/
         - name: Google Scholar
           url: https://scholar.google.com/citations?user=Prwxh24AAAAJ&hl=en
         - name: LinkedIn
