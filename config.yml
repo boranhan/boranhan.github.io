@@ -60,23 +60,23 @@ params:
               url: papers/
             - name: Courses
               url: courses/
-            - name: Data
-              url: data/
+            - name: News
+              url: News/
             - name: Newsletter
               url: https://pmichaillat.substack.com
-            - name: Tags
-              url: tags/
-            - name: Archive
-              url: archive/
+            - name: Talks
+              url: Talks/
+            - name: Gallery
+              url: gallery/
     socialIcons:
-        - name: CV
-          url: cv.pdf
+        # - name: CV
+        #  url: cv.pdf
         - name: Email
           url: boranhan.dl@gmail.com
-        - name: Location
-          url: location/
-        - name: Office Hours
-          url: officehours/
+        #- name: Location
+        #  url: location/
+        #- name: Office Hours
+        #  url: officehours/
         - name: Google Scholar
           url: https://scholar.google.com/citations?user=Prwxh24AAAAJ&hl=en
         - name: LinkedIn
@@ -93,7 +93,7 @@ params:
         hiddenInList: false
         hiddenInSingle: true
     label:
-      text: "Prof. Name"
+      text: "Boran Han"
       icon: favicon.ico
       iconHeight: 18
 
