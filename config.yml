@@ -65,9 +65,9 @@ params:
             - name: Newsletter
               url: https://pmichaillat.substack.com
             - name: Talks
-              url: Talks/
+              url: tags/
             - name: Gallery
-              url: gallery/
+              url: archive/
     socialIcons:
         # - name: CV
         #  url: cv.pdf
