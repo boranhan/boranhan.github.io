@@ -1,6 +1,6 @@
 ---
 title: "PreDiff: Precipitation Nowcasting with Latent Diffusion Models" 
-date: NeurIPS 2023
+journal: NeurIPS 2023
 tags: ["keyword 1","keyword 2","keyword 3"]
 author: "Zhihan Gao, Xingjian Shi, Boran Han, Hao Wang, Xiaoyong Jin, Danielle Maddix, Yi Zhu, Mu Li, Yuyang Wang"
 description: "This paper shows things. Published in Journal Name, 2012." 
