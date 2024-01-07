@@ -1,8 +1,8 @@
 ---
-title: "Paper Title 1" 
+title: "PreDiff: Precipitation Nowcasting with Latent Diffusion Models" 
 date: 2012-06-01
 tags: ["keyword 1","keyword 2","keyword 3"]
-author: "Author Name"
+author: "NeurIPS"
 description: "This paper shows things. Published in Journal Name, 2012." 
 summary: "This paper shows things using various techniques and data." 
 cover:
