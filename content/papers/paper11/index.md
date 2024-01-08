@@ -1,17 +1,17 @@
 ---
-title: "Paper Title 2" 
-date: 2015-12-01
-tags: ["keyword 1","keyword 2","keyword 4"]
-author: ["Author Name 1", "Author Name 2"]
+title: "Membrane-associated periodic skeleton is a signaling platform for RTK transactivation in neurons" 
+date: 2019-08-30
+tags: ["Neuroscience","Super-resolution microscopy","Molecular biology"]
+author: ["Ruobo Zhou, Boran Han, Chenglong Xia, Xiaowei Zhuang"]
 description: "This paper shows other things. Published in Journal Name, 2015." 
-summary: "This paper shows other things using other techniques and different data." 
+summary: "Science" 
 cover:
-    image: "paper2.png"
+    image: "science.png"
     alt: "Image caption"
     relative: false
 editPost:
-    URL: "https://doi.org/10.1073/pnas.1816454115"
-    Text: "Other Journal Name"
+    URL: "https://www.science.org/doi/full/10.1126/science.aaw5937"
+    Text: "Science"
 
 ---
 
@@ -19,43 +19,42 @@ editPost:
 
 ##### Download
 
-+ [Paper](paper2.pdf)
-+ [Online appendix](appendix2.pdf)
-+ [Code and data](https://github.com/pmichaillat/unemployment-gap)
++ [Paper](https://www.science.org/doi/full/10.1126/science.aaw5937)
++ [Online appendix](https://www.science.org/doi/suppl/10.1126/science.aaw5937/suppl_file/aaw5937_zhou_sm.pdf)
 
 ---
 
 ##### Abstract
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Actin, spectrin, and related molecules form a membrane-associated periodic skeleton (MPS) in neurons. The function of the MPS, however, remains poorly understood. Using super-resolution imaging, we observed that G protein–coupled receptors (GPCRs), cell adhesion molecules (CAMs), receptor tyrosine kinases (RTKs), and related signaling molecules were recruited to the MPS in response to extracellular stimuli, resulting in colocalization of these molecules and RTK transactivation by GPCRs and CAMs, giving rise to extracellular signal–regulated kinase (ERK) signaling. Disruption of the MPS prevented such molecular colocalizations and downstream ERK signaling. ERK signaling in turn caused calpain-dependent MPS degradation, providing a negative feedback that modulates signaling strength. These results reveal an important functional role of the MPS and establish it as a dynamically regulated platform for GPCR- and CAM-mediated RTK signaling.
 
 ---
 
 ##### Figure X: Figure caption
 
-![](paper2.png)
+![](science.png)
 
 ---
 
 ##### Citation
 
-Author 1 and Author 2. Year. "Title." *Journal* Volume (Issue): First page–Last page. https://doi.org/paper_doi.
-
 ```BibTeX
-@article{AAYY,
-author = {Author 1 and Author 2},
-doi = {paper_doi},
-journal = {Journal},
-number = {Issue},
-pages = {XXX--YYY},
-title ={Title},
-volume = {Volume},
-year = {Year}}
+@article{
+doi:10.1126/science.aaw5937,
+author = {Ruobo Zhou  and Boran Han  and Chenglong Xia  and Xiaowei Zhuang },
+title = {Membrane-associated periodic skeleton is a signaling platform for RTK transactivation in neurons},
+journal = {Science},
+volume = {365},
+number = {6456},
+pages = {929-934},
+year = {2019},
+doi = {10.1126/science.aaw5937},
+URL = {https://www.science.org/doi/abs/10.1126/science.aaw5937},
+eprint = {https://www.science.org/doi/pdf/10.1126/science.aaw5937},
+}
+
+
 ```
 
 ---
-
-##### Related material
-
-+ [Presentation slides](presentation2.pdf)
 
