@@ -11,7 +11,7 @@ cover:
     relative: false
 editPost:
     URL: "https://openaccess.thecvf.com/content/WACV2024/html/Fang_Data_Augmentation_for_Object_Detection_via_Controllable_Diffusion_Models_WACV_2024_paper.html"
-    Text: "Other Journal Name"
+    Text: "WACV 2024"
 
 ---
 

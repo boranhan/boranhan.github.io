@@ -1,7 +1,7 @@
 ---
 title: "Proteomic and functional analyses of the periodic membrane skeleton in neurons" 
 date: 2022-06-09
-tags: ["keyword 1","keyword 2","keyword 4"]
+tags: ["Super-resolution microscopy","Neuroscience","Molecular biology"]
 author: ["Ruobo Zhou*, Boran Han*, Roberta Nowak, Yunzhe Lu, Evan Heller, Chenglong Xia, Athar H Chishti, Velia M Fowler, Xiaowei Zhuang"]
 description: "This paper shows other things. Published in Journal Name, 2015." 
 summary: "Nature Communications" 
@@ -11,7 +11,7 @@ cover:
     relative: false
 editPost:
     URL: "https://www.nature.com/articles/s41467-022-30720-x"
-    Text: "Other Journal Name"
+    Text: "Nature Communications"
 
 ---
 

@@ -11,7 +11,7 @@ cover:
     relative: false
 editPost:
     URL: "https://dl.acm.org/doi/10.5555/3618408.3618908"
-    Text: "Other Journal Name"
+    Text: "ICML 2023"
 
 ---
 

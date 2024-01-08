@@ -11,7 +11,7 @@ cover:
     relative: false
 editPost:
     URL: "https://doi.org/10.1073/pnas.1816454115"
-    Text: "Other Journal Name"
+    Text: "arXiv"
 
 ---
 

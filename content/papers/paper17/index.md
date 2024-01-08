@@ -11,7 +11,7 @@ cover:
     relative: false
 editPost:
     URL: "https://openaccess.thecvf.com/content/ICCV2023/html/Mendieta_Towards_Geospatial_Foundation_Models_via_Continual_Pretraining_ICCV_2023_paper.html"
-    Text: "Other Journal Name"
+    Text: "ICCV 2023"
 
 ---
 

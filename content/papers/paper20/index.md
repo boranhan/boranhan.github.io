@@ -56,4 +56,5 @@ url={https://openreview.net/forum?id=Gh67ZZ6zkS}
 ##### Related material
 
 + [Presentation slides](https://nips.cc/virtual/2023/poster/72200)
++ [Blog post](https://www.amazon.science/blog/making-deep-learning-practical-for-earth-system-forecasting)
 
