@@ -1,17 +1,17 @@
 ---
-title: "Paper Title 2" 
-date: 2015-12-01
-tags: ["keyword 1","keyword 2","keyword 4"]
-author: ["Author Name 1", "Author Name 2"]
+title: "Example-based super-resolution fluorescence microscopy" 
+date: 2018-04-23
+tags: ["Computational microscopy","Super-resolution microscopy","AI for science"]
+author: ["Shu Jia, Boran Han, J Nathan Kutz"]
 description: "This paper shows other things. Published in Journal Name, 2015." 
-summary: "This paper shows other things using other techniques and different data." 
+summary: "Scientific Reports" 
 cover:
-    image: "paper2.png"
+    image: "sr.png"
     alt: "Image caption"
     relative: false
 editPost:
-    URL: "https://doi.org/10.1073/pnas.1816454115"
-    Text: "Other Journal Name"
+    URL: "https://www.nature.com/articles/s41598-018-24033-7"
+    Text: "Scientific Reports"
 
 ---
 
@@ -19,38 +19,35 @@ editPost:
 
 ##### Download
 
-+ [Paper](paper2.pdf)
-+ [Online appendix](appendix2.pdf)
-+ [Code and data](https://github.com/pmichaillat/unemployment-gap)
++ [Paper](https://www.nature.com/articles/s41598-018-24033-7.pdf)
++ [Online appendix](https://static-content.springer.com/esm/art%3A10.1038%2Fs41598-018-24033-7/MediaObjects/41598_2018_24033_MOESM1_ESM.pdf)
 
 ---
 
 ##### Abstract
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Capturing biological dynamics with high spatiotemporal resolution demands the advancement in imaging technologies. Super-resolution fluorescence microscopy offers spatial resolution surpassing the diffraction limit to resolve near-molecular-level details. While various strategies have been reported to improve the temporal resolution of super-resolution imaging, all super-resolution techniques are still fundamentally limited by the trade-off associated with the longer image acquisition time that is needed to achieve higher spatial information. Here, we demonstrated an example-based, computational method that aims to obtain super-resolution images using conventional imaging without increasing the imaging time. With a low-resolution image input, the method provides an estimate of its super-resolution image based on an example database that contains super- and low-resolution image pairs of biological structures of interest. The computational imaging of cellular microtubules agrees approximately with the experimental super-resolution STORM results. This new approach may offer potential improvements in temporal resolution for experimental super-resolution fluorescence microscopy and provide a new path for large-data aided biomedical imaging.
 
 ---
 
 ##### Figure X: Figure caption
 
-![](paper2.png)
+![](sr.png)
 
 ---
 
 ##### Citation
 
-Author 1 and Author 2. Year. "Title." *Journal* Volume (Issue): First page–Last page. https://doi.org/paper_doi.
-
 ```BibTeX
-@article{AAYY,
-author = {Author 1 and Author 2},
-doi = {paper_doi},
-journal = {Journal},
-number = {Issue},
-pages = {XXX--YYY},
-title ={Title},
-volume = {Volume},
-year = {Year}}
+@article{article,
+author = {Jia, Shu and Han, Boran and Kutz, J},
+year = {2018},
+month = {04},
+pages = {5700},
+title = {Example-Based Super-Resolution Fluorescence Microscopy},
+volume = {8},
+journal = {Scientific reports},
+}
 ```
 
 ---
