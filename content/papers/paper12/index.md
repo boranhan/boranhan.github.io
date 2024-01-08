@@ -1,17 +1,17 @@
 ---
-title: "Paper Title 2" 
-date: 2015-12-01
+title: " A Robust End-to-End Method for Parametric Curve Tracing via Soft Cosine-Similarity-Based Objective Function" 
+date: 2021-12-01
 tags: ["keyword 1","keyword 2","keyword 4"]
 author: ["Author Name 1", "Author Name 2"]
 description: "This paper shows other things. Published in Journal Name, 2015." 
-summary: "This paper shows other things using other techniques and different data." 
+summary: "ICCVW 2021" 
 cover:
-    image: "paper2.png"
+    image: "tracing.png"
     alt: "Image caption"
     relative: false
 editPost:
-    URL: "https://doi.org/10.1073/pnas.1816454115"
-    Text: "Other Journal Name"
+    URL: "https://openaccess.thecvf.com/content/ICCV2021W/TradiCV/html/Han_A_Robust_End-to-End_Method_for_Parametric_Curve_Tracing_via_Soft_ICCVW_2021_paper.html"
+    Text: "ICCVW 2021"
 
 ---
 
@@ -19,38 +19,35 @@ editPost:
 
 ##### Download
 
-+ [Paper](paper2.pdf)
-+ [Online appendix](appendix2.pdf)
-+ [Code and data](https://github.com/pmichaillat/unemployment-gap)
++ [Paper](https://openaccess.thecvf.com/content/ICCV2021W/TradiCV/papers/Han_A_Robust_End-to-End_Method_for_Parametric_Curve_Tracing_via_Soft_ICCVW_2021_paper.pdf)
++ [Online appendix](https://openaccess.thecvf.com/content/ICCV2021W/TradiCV/supplemental/Han_A_Robust_End-to-End_ICCVW_2021_supplemental.pdf)
 
 ---
 
 ##### Abstract
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Parametric curve tracing enables wide applications, such as lane following in autonomous driving, volumetric reconstruction in seismic, single-molecule/protein tracking in microscopy. Most existing parametric curve tracing methods require several steps, including curve identification and parameterization. Such multi-step methods can lead to lengthy and complicated parameter optimization. Additionally, the performance of curve identification methods can be degraded by noisy or low-light images. To address these challenges, we present a novel single-step approach to trace curves parametrically via optimizing a self-defined non-linear objective function that describes several key properties of the curve. Under the assumption that signals along the curve resemble each other, our objective function will guide this pathfinding process from a seed point along the direction according to maximum cosine similarity. No pre- and post-processing step is required to measure the tangent or normal vectors. We visualize our objective function and conduct several numerical experiments. These empirical experiments demonstrate that our method outperforms other competing methods across image domains. It yields better accuracy even in low signal-to-noise ratio (SNR) conditions. 
 
 ---
 
 ##### Figure X: Figure caption
 
-![](paper2.png)
+![](tracing.png)
 
 ---
 
 ##### Citation
 
-Author 1 and Author 2. Year. "Title." *Journal* Volume (Issue): First page–Last page. https://doi.org/paper_doi.
 
 ```BibTeX
-@article{AAYY,
-author = {Author 1 and Author 2},
-doi = {paper_doi},
-journal = {Journal},
-number = {Issue},
-pages = {XXX--YYY},
-title ={Title},
-volume = {Volume},
-year = {Year}}
+@InProceedings{Han_2021_ICCV,
+    author    = {Han, Boran and Vila, Jeremy},
+    title     = {A Robust End-to-End Method for Parametric Curve Tracing via Soft Cosine-Similarity-Based Objective Function},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops},
+    month     = {October},
+    year      = {2021},
+    pages     = {2453-2463}
+}
 ```
 
 ---
