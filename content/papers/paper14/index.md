@@ -1,6 +1,6 @@
 ---
 title: "CaMML: Context-Aware Multimodal Learner for Large Models" 
-date: 2024-01-09
+date: 2024-01-07
 tags: ["Multimodal foundation models","In-context learning","Retrieval augmented generation"]
 author: ["Yixin Chen*, Shuai Zhang*, Boran Han, Tong He, Bo Li"]
 description: "This paper shows other things. Published in Journal Name, 2015." 
