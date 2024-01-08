@@ -3,7 +3,7 @@ title: "Data augmentation for object detection via controllable diffusion models
 date: 2024-01-04
 tags: ["Data augmentation","Diffusion model","Object detection"]
 author: ["Haoyang Fang, Boran Han, Shuai Zhang, Su Zhou, Cuixiong Hu, Wen-Ming Ye"]
-description: "WACV 2024" 
+description: This paper shows other things. Published in Journal Name, 2015." 
 summary: "WACV 2024" 
 cover:
     image: "daod.png"
