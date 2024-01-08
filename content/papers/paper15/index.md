@@ -1,16 +1,16 @@
 ---
-title: "Paper Title 2" 
-date: 2015-12-01
+title: "Proteomic and functional analyses of the periodic membrane skeleton in neurons" 
+date: 2022-06-09
 tags: ["keyword 1","keyword 2","keyword 4"]
-author: ["Author Name 1", "Author Name 2"]
+author: ["Ruobo Zhou*, Boran Han*, Roberta Nowak, Yunzhe Lu, Evan Heller, Chenglong Xia, Athar H Chishti, Velia M Fowler, Xiaowei Zhuang"]
 description: "This paper shows other things. Published in Journal Name, 2015." 
-summary: "This paper shows other things using other techniques and different data." 
+summary: "Nature Communications" 
 cover:
-    image: "paper2.png"
+    image: "MPS.png"
     alt: "Image caption"
     relative: false
 editPost:
-    URL: "https://doi.org/10.1073/pnas.1816454115"
+    URL: "https://www.nature.com/articles/s41467-022-30720-x"
     Text: "Other Journal Name"
 
 ---
@@ -19,43 +19,36 @@ editPost:
 
 ##### Download
 
-+ [Paper](paper2.pdf)
-+ [Online appendix](appendix2.pdf)
-+ [Code and data](https://github.com/pmichaillat/unemployment-gap)
++ [Paper](https://www.nature.com/articles/s41467-022-30720-x)
++ [Online appendix](https://www.nature.com/articles/s41467-022-30720-x#Sec26)
++ [Code and data](https://doi.org/10.5281/zenodo.3264857)
 
 ---
 
 ##### Abstract
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Actin, spectrin, and associated molecules form a membrane-associated periodic skeleton (MPS) in neurons. The molecular composition and functions of the MPS remain incompletely understood. Here, using co-immunoprecipitation and mass spectrometry, we identified hundreds of potential candidate MPS-interacting proteins that span diverse functional categories. We examined representative proteins in several of these categories using super-resolution imaging, including previously unknown MPS structural components, as well as motor proteins, cell adhesion molecules, ion channels, and signaling proteins, and observed periodic distributions characteristic of the MPS along the neurites for ~20 proteins. Genetic perturbations of the MPS and its interacting proteins further suggested functional roles of the MPS in axon-axon and axon-dendrite interactions and in axon diameter regulation, and implicated the involvement of MPS interactions with cell adhesion molecules and non-muscle myosin in these roles. These results provide insights into the interactome of the MPS and suggest previously unknown functions of the MPS in neurons.
 
 ---
 
 ##### Figure X: Figure caption
 
-![](paper2.png)
+![](MPS.png)
 
 ---
 
 ##### Citation
 
-Author 1 and Author 2. Year. "Title." *Journal* Volume (Issue): First page–Last page. https://doi.org/paper_doi.
-
 ```BibTeX
-@article{AAYY,
-author = {Author 1 and Author 2},
-doi = {paper_doi},
-journal = {Journal},
-number = {Issue},
-pages = {XXX--YYY},
-title ={Title},
-volume = {Volume},
-year = {Year}}
+@article{unknown,
+author = {Zhou, Ruobo and Han, Boran and Nowak, Roberta and Lu, Yunzhe and Heller, Evan and Xia, Chenglong and Chishti, Athar and Fowler, Velia and Zhuang, Xiaowei},
+year = {2022},
+month = {2},
+pages = {},
+journal = {Nature Communications},
+title = {Proteomic and functional analyses of the periodic membrane skeleton in neurons},
+}
 ```
 
 ---
-
-##### Related material
-
-+ [Presentation slides](presentation2.pdf)
 
