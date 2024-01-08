@@ -1,7 +1,7 @@
 ---
 title: " A Robust End-to-End Method for Parametric Curve Tracing via Soft Cosine-Similarity-Based Objective Function" 
 date: 2021-12-01
-tags: ["keyword 1","keyword 2","keyword 4"]
+tags: ["Computational microscopy","Single molecule tracking","Remote sensing"]
 author: ["Author Name 1", "Author Name 2"]
 description: "This paper shows other things. Published in Journal Name, 2015." 
 summary: "ICCVW 2021" 
