@@ -1,16 +1,16 @@
 ---
-title: "Paper Title 2" 
-date: 2015-12-01
-tags: ["keyword 1","keyword 2","keyword 4"]
-author: ["Author Name 1", "Author Name 2"]
+title: "Wrapped Cauchy Distributed Angular Softmax for Long-Tailed Visual Recognition" 
+date: 2023-07-09
+tags: ["Long tail","Representation learning"]
+author: ["Boran Han"]
 description: "This paper shows other things. Published in Journal Name, 2015." 
-summary: "This paper shows other things using other techniques and different data." 
+summary: "ICML 2023" 
 cover:
-    image: "paper2.png"
+    image: "WCDAS.png"
     alt: "Image caption"
     relative: false
 editPost:
-    URL: "https://doi.org/10.1073/pnas.1816454115"
+    URL: "https://dl.acm.org/doi/10.5555/3618408.3618908"
     Text: "Other Journal Name"
 
 ---
@@ -19,21 +19,21 @@ editPost:
 
 ##### Download
 
-+ [Paper](paper2.pdf)
-+ [Online appendix](appendix2.pdf)
-+ [Code and data](https://github.com/pmichaillat/unemployment-gap)
++ [Paper](https://dl.acm.org/doi/10.5555/3618408.3618908)
++ [Online appendix](https://dl.acm.org/doi/10.5555/3618408.3618908)
++ [Code and data](https://github.com/boranhan/wcdas_code)
 
 ---
 
 ##### Abstract
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Addressing imbalanced or long-tailed data is a major challenge in visual recognition tasks due to disparities between training and testing distributions and issues with data noise. We propose the Wrapped Cauchy Distributed Angular Softmax (WCDAS), a novel softmax function that incorporates data-wise Gaussian-based kernels into the angular correlation between feature representations and classifier weights, effectively mitigating noise and sparse sampling concerns. The class-wise distribution of angular representation becomes a sum of these kernels. Our theoretical analysis reveals that the wrapped Cauchy distribution excels the Gaussian distribution in approximating mixed distributions. Additionally, WCDAS uses trainable concentration parameters to dynamically adjust the compactness and margin of each class. Empirical results confirm label-aware behavior in these parameters and demonstrate WCDAS's superiority over other state-of-the-art softmax-based methods in handling long-tailed visual recognition across multiple benchmark datasets. The code is public available. 
 
 ---
 
 ##### Figure X: Figure caption
 
-![](paper2.png)
+![](WCDAS.png)
 
 ---
 
@@ -43,19 +43,19 @@ Author 1 and Author 2. Year. "Title." *Journal* Volume (Issue): First page–Las
 
 ```BibTeX
 @article{AAYY,
-author = {Author 1 and Author 2},
-doi = {paper_doi},
-journal = {Journal},
-number = {Issue},
-pages = {XXX--YYY},
-title ={Title},
-volume = {Volume},
-year = {Year}}
+@inproceedings{10.5555/3618408.3618908,
+author = {Han, Boran},
+title = {Wrapped Cauchy Distributed Angular Softmax for Long-Tailed Visual Recognition},
+year = {2023},
+publisher = {JMLR.org},
+booktitle = {Proceedings of the 40th International Conference on Machine Learning},
+articleno = {500},
+numpages = {21},
+location = {Honolulu, Hawaii, USA},
+series = {ICML'23}
+}
+
+
 ```
 
 ---
-
-##### Related material
-
-+ [Presentation slides](presentation2.pdf)
-
