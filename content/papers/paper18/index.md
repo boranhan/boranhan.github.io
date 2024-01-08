@@ -38,8 +38,6 @@ In-context learning (ICL) involves reasoning from given contextual examples. As 
 
 ##### Citation
 
-Author 1 and Author 2. Year. "Title." *Journal* Volume (Issue): First page–Last page. https://doi.org/paper_doi.
-
 ```BibTeX
 @misc{chen2023lightweight,
       title={Lightweight In-Context Tuning for Multimodal Unified Models}, 
