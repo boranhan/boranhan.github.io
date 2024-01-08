@@ -53,7 +53,3 @@ Author 1 and Author 2. Year. "Title." *Journal* Volume (Issue): First page–Las
 
 ---
 
-##### Related material
-
-+ [Presentation slides](presentation2.pdf)
-
