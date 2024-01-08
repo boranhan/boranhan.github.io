@@ -1,7 +1,7 @@
 ---
 title: "Lightweight In-Context Tuning for Multimodal Unified Models" 
 date: 2023-10-08
-tags: ["In-context learning","Generalist","Unified model"]
+tags: ["In-context learning","Generalist","Unified model", "Multimodal foundation models"]
 author: ["Yixin Chen, Shuai Zhang, Boran Han, Jiaya Jia"]
 description: "This paper shows other things. Published in Journal Name, 2015." 
 summary: "arXiv" 
