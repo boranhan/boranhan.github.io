@@ -38,8 +38,6 @@ Data augmentation is vital for object detection tasks that require expensive bou
 
 ##### Citation
 
-Author 1 and Author 2. Year. "Title." *Journal* Volume (Issue): First page–Last page. https://doi.org/paper_doi.
-
 ```BibTeX
 @InProceedings{Fang_2024_WACV,
     author    = {Fang, Haoyang and Han, Boran and Zhang, Shuai and Zhou, Su and Hu, Cuixiong and Ye, Wen-Ming},
