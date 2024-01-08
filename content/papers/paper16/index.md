@@ -42,7 +42,6 @@ Addressing imbalanced or long-tailed data is a major challenge in visual recogni
 Author 1 and Author 2. Year. "Title." *Journal* Volume (Issue): First page–Last page. https://doi.org/paper_doi.
 
 ```BibTeX
-@article{AAYY,
 @inproceedings{10.5555/3618408.3618908,
 author = {Han, Boran},
 title = {Wrapped Cauchy Distributed Angular Softmax for Long-Tailed Visual Recognition},
