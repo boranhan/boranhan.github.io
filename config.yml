@@ -56,7 +56,7 @@ params:
     profileMode:
           enabled: true
           title: Boran Han
-          subtitle: "I'm a scientist at AWS AI Research and Education Labs. I earned the Ph.D. degree from Harvard University under the guidance of [Prof. Xiaowei Zhuang](https://zhuang.harvard.edu/). My research is published in esteemed journals such as *Science*, *Cell*, *Nature Communications*, and Proceedings of the National Academy of Sciences, or at top-tier conferences including NeurIPS, ICCV, and ICML. My primary areas of focus include: (1) Foundations in Machine Learning (2) Multimodal Foundation Models and Generative AI (3) Natural Science Discoveries (4) Innovative Machine Learning Algorithm Development in Microscopy. (5) Remote Sensing Foundation Models for Sustainability."
+          subtitle: "I'm a scientist at AWS AI Research and Education Labs. I earned the Ph.D. degree from Harvard University under the guidance of [Prof. Xiaowei Zhuang](https://zhuang.harvard.edu/). My research is published in esteemed journals such as *Science*, *Cell*, *Nature Communications*, and *Proceedings of the National Academy of Sciences*, or at top-tier conferences including *NeurIPS*, *ICCV*, and *ICML*. My primary areas of focus include: (1) Foundations in Machine Learning (2) Multimodal Foundation Models and Generative AI (3) Natural Science Discoveries (4) Innovative Machine Learning Algorithm Development in Microscopy. (5) Remote Sensing Foundation Models for Sustainability."
           imageUrl: "Image.png"
           imageWidth: 160
           imageHeight: 160
