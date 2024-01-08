@@ -32,7 +32,7 @@ Data augmentation is vital for object detection tasks that require expensive bou
 
 ##### Figure X: Figure caption
 
-![](daod.png.png)
+![](daod.png)
 
 ---
 
