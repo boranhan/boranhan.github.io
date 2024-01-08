@@ -6,12 +6,12 @@ author: "Zhihan Gao, Xingjian Shi, Boran Han, Hao Wang, Xiaoyong Jin, Danielle M
 description: "This paper shows other things. Published in NeurIPS 2023, 2015." 
 summary: "NeurIPS 2023" 
 cover:
-    image: "paper2.png"
+    image: "prediff.png"
     alt: "Image caption"
     relative: false
 editPost:
-    URL: "https://doi.org/10.1073/pnas.1816454115"
-    Text: "Other Journal Name"
+    URL: "https://arxiv.org/abs/2307.10422"
+    Text: "NeurIPS 2023"
 
 ---
 
