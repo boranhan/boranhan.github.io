@@ -1,7 +1,7 @@
 ---
 title: "A peptide loop and an α-helix N-terminal serving as alternative electron hopping relays in proteins" 
 date: 2012-12-01
-tags: ["Computational science","Density function theory","keyword 4"]
+tags: ["Computational science","Density function theory"]
 author: ["Boran Han, Xiaohua Chen, Jing Zhao, Yuxiang Bu"]
 description: "This paper shows other things. Published in Journal Name, 2015." 
 summary: "Physical Chemistry Chemical Physics" 
