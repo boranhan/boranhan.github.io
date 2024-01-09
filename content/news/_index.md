@@ -6,6 +6,24 @@ description: ""
 
 ## Recent News
 
+---
+date: 2024-01-07
+tags: []
+author: []
+description: "This dataset contains things."
+summary: "We will host the [ICLR 2024 Workshop on AI4DifferentialEquations in Science](https://ai4diffeqtnsinsci.github.io/)! We welcome submissions that push forward the use of AI for solving ordinary or partial differential equations with applications in earth sciences, climate and computational fluid dynamics and beyond."
+# cover:
+    # image: ""
+    # alt: "Figure caption"
+    # relative: false
+editPost:
+    URL: ""
+    Text: ""
+showToc: true
+disableAnchoredHeadings: false
+
+---
+
 
 * <span style="color: gray;">[Jan 2024]</span> We will host the [ICLR 2024 Workshop on AI4DifferentialEquations in Science](https://ai4diffeqtnsinsci.github.io/)! We welcome submissions that push forward the use of AI for solving ordinary or partial differential equations with applications in earth sciences, climate and computational fluid dynamics and beyond.
 <br> <br>
