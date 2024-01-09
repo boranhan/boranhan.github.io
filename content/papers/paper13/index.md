@@ -1,7 +1,7 @@
 ---
 title: "Defocus Deblur Microscopy via Head-to-Tail Cross-Scale Fusion" 
 date: 2022-06-06
-tags: ["Computational microscopy","Bioimaging"]
+tags: ["Computational microscopy","Bioimaging", "AI4Science"]
 author: ["Jiahe Wang; Boran Han"]
 description: "This paper shows other things. Published in Journal Name, 2015." 
 summary: "ICIP 2022" 

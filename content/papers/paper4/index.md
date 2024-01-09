@@ -1,7 +1,7 @@
 ---
 title: "Nonadiabatic quantum dynamics in O(3P)+H2→OH+H: A revisited study" 
 date: 2011-12-01
-tags: ["Computational Science","Nonadiabatic","quasi-classical trajector method"]
+tags: ["Computational Science","Nonadiabatic","Quasi-classical trajector method"]
 author: ["Boran Han, Yujun Zheng"]
 description: "This paper shows other things. Published in Journal Name, 2015." 
 summary: "Journal of Computational Chemistry" 
