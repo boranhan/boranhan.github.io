@@ -1,17 +1,17 @@
 ---
-title: "Paper Title 2" 
-date: 2015-12-01
-tags: ["keyword 1","keyword 2","keyword 4"]
-author: ["Author Name 1", "Author Name 2"]
+title: "Product polarization on the 3A ″electronic state in the H+ FO reaction and its isotope variant" 
+date: 2010-10-18
+tags: ["Quasi-classical trajectory method","Computational science"]
+author: ["Boran Han, Fujian Zong, Chunlei Wang, Wanyong Ma, Jianhua Zhou"]
 description: "This paper shows other things. Published in Journal Name, 2015." 
-summary: "This paper shows other things using other techniques and different data." 
+summary: "Chemical Physics" 
 cover:
-    image: "paper2.png"
+    image: "qct.png"
     alt: "Image caption"
     relative: false
 editPost:
-    URL: "https://doi.org/10.1073/pnas.1816454115"
-    Text: "Other Journal Name"
+    URL: "https://www.sciencedirect.com/science/article/abs/pii/S030101041000296X"
+    Text: "Chemical Physics"
 
 ---
 
@@ -19,43 +19,39 @@ editPost:
 
 ##### Download
 
-+ [Paper](paper2.pdf)
-+ [Online appendix](appendix2.pdf)
-+ [Code and data](https://github.com/pmichaillat/unemployment-gap)
++ [Paper](https://www.sciencedirect.com/science/article/abs/pii/S030101041000296X)
 
 ---
 
 ##### Abstract
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+The quasi-classical trajectory calculations are carried out for the title reactions on a recent-developed accurate potential energy surface of the triplet 13A″ state to gain insight into the alignment and the orientation of the product molecules. The three angular distributions, P(θr), P(Φr) and P(θr,Φr) with θr, Φr being the polar angles of the product angular momentum, and the four commonly-used polarization-dependent differential cross sections, dσ00/dωt, dσ20/dωt, dσ22+/dωt and dσ21−/dωt with ωt being the polar coordinates of the product velocity ω′, are calculated in the center-of-mass frame. Influences of the collision energy and of the isotope mass on the product polarization are shown and discussed.
 
 ---
 
 ##### Figure X: Figure caption
 
-![](paper2.png)
+![](qct.png)
 
 ---
 
 ##### Citation
 
-Author 1 and Author 2. Year. "Title." *Journal* Volume (Issue): First page–Last page. https://doi.org/paper_doi.
-
 ```BibTeX
-@article{AAYY,
-author = {Author 1 and Author 2},
-doi = {paper_doi},
-journal = {Journal},
-number = {Issue},
-pages = {XXX--YYY},
-title ={Title},
-volume = {Volume},
-year = {Year}}
+@article{HAN201094,
+title = {Product polarization on the 3A″ electronic state in the H+FO reaction and its isotope variant},
+journal = {Chemical Physics},
+volume = {374},
+number = {1},
+pages = {94-98},
+year = {2010},
+issn = {0301-0104},
+doi = {https://doi.org/10.1016/j.chemphys.2010.06.028},
+url = {https://www.sciencedirect.com/science/article/pii/S030101041000296X},
+author = {Boran Han and Fujian Zong and Chunlei Wang and Wanyong Ma and Jianhua Zhou},
+keywords = {Product polarization, Stereodynamics, QCT, Alignment}
+}
 ```
 
 ---
-
-##### Related material
-
-+ [Presentation slides](presentation2.pdf)
 
