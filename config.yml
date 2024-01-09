@@ -20,7 +20,7 @@ menu:
         - name: News
           url: news/
           weight: 3 
-        - name: Research Interest
+        - name: Keywords
           url: tags/
           weight: 4
         - name: Archive
@@ -65,7 +65,7 @@ params:
               url: courses/
             - name: News
               url: news/
-            - name: Research Interest
+            - name: Keywords
               url: tags/
             - name: Archive
               url: archive/
