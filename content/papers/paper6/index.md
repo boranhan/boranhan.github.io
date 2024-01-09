@@ -1,17 +1,17 @@
 ---
-title: "Paper Title 2" 
-date: 2015-12-01
-tags: ["keyword 1","keyword 2","keyword 4"]
-author: ["Author Name 1", "Author Name 2"]
+title: "Effects of a reagent's rotational and vibrational excitations on reaction O(3P) + H2(ν = 0, 3, j = 0, 3, 5, 7, 9, 12, 15) → OH + H" 
+date: 2012-12-09
+tags: ["Computational science","Quasi-classical trajectory method"]
+author: ["Zeng-Hui Xu, Fu-Jian Zong, Bo-Ran Han, Shao-Hua Dong, Jian-Qiang Liu, Feng Ji"]
 description: "This paper shows other things. Published in Journal Name, 2015." 
-summary: "This paper shows other things using other techniques and different data." 
+summary: "Chinese Physics B" 
 cover:
-    image: "paper2.png"
+    image: "cpb.png"
     alt: "Image caption"
     relative: false
 editPost:
-    URL: "https://doi.org/10.1073/pnas.1816454115"
-    Text: "Other Journal Name"
+    URL: "https://iopscience.iop.org/article/10.1088/1674-1056/21/9/093103/pdf"
+    Text: "Chinese Physics B"
 
 ---
 
@@ -19,21 +19,13 @@ editPost:
 
 ##### Download
 
-+ [Paper](paper2.pdf)
-+ [Online appendix](appendix2.pdf)
-+ [Code and data](https://github.com/pmichaillat/unemployment-gap)
-
++ [Paper](https://iopscience.iop.org/article/10.1088/1674-1056/21/9/093103/pdf)
 ---
 
 ##### Abstract
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
----
-
-##### Figure X: Figure caption
-
-![](paper2.png)
 
 ---
 
@@ -42,15 +34,20 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Author 1 and Author 2. Year. "Title." *Journal* Volume (Issue): First page–Last page. https://doi.org/paper_doi.
 
 ```BibTeX
-@article{AAYY,
-author = {Author 1 and Author 2},
-doi = {paper_doi},
-journal = {Journal},
-number = {Issue},
-pages = {XXX--YYY},
-title ={Title},
-volume = {Volume},
-year = {Year}}
+@article{Xu_2012,
+doi = {10.1088/1674-1056/21/9/093103},
+url = {https://dx.doi.org/10.1088/1674-1056/21/9/093103},
+year = {2012},
+month = {sep},
+publisher = {},
+volume = {21},
+number = {9},
+pages = {093103},
+author = {and  and  and  and  and},
+title = {Effects of a reagent's rotational and vibrational excitations on reaction O(3P) + H2(ν = 0, 3, j = 0, 3, 5, 7, 9, 12, 15) → OH + H},
+journal = {Chinese Physics B}}
+}
+
 ```
 
 ---
