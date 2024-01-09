@@ -18,17 +18,14 @@ menu:
           url: courses/
           weight: 2
         - name: News
-          url: data/
+          url: news/
           weight: 3 
-        - name: Newsletter
-          url: https://pmichaillat.substack.com
-          weight: 4
         - name: Tags
           url: tags/
-          weight: 5
+          weight: 4
         - name: Archive
           url: archive/
-          weight: 6
+          weight: 5
 
 params:
     description: "I'm a scientist at AWS AI Research and Education Labs. I earned my Ph.D. from Harvard University under the guidance of Prof. Xiaowei Zhuang. My research is published in esteemed journals such as Science, Cell, Nature Communications, and Proceedings of the National Academy of Sciences, or at top-tier conferences including NeurIPS, ICCV, and ICML. My primary areas of focus include: (1) Foundations in Machine Learning (2) Multimodal Foundation Models and Generative AI (3) Natural Science Discoveries (4) Innovative Machine Learning Algorithm Development in Microscopy. (5) Remote Sensing Foundation Models for Sustainability."
@@ -67,9 +64,7 @@ params:
             - name: Courses
               url: courses/
             - name: News
-              url: data/
-            - name: Newsletter
-              url: https://pmichaillat.substack.com
+              url: news/
             - name: Tags
               url: tags/
             - name: Archive
