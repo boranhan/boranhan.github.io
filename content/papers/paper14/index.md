@@ -10,7 +10,7 @@ cover:
     alt: "Image caption"
     relative: false
 editPost:
-    URL: "https://arxiv.org/abs/2307.10422"
+    URL: "http://arxiv.org/abs/2401.03149"
     Text: "arXiv"
 
 ---
@@ -19,9 +19,8 @@ editPost:
 
 ##### Download
 
-+ [Paper](https://arxiv.org/abs/2307.10422)
-+ [Online appendix](https://arxiv.org/abs/2307.10422)
-+ [Code and data](https://arxiv.org/abs/2307.10422)
++ [Paper](hhttp://arxiv.org/abs/2401.03149)
++ [Online appendix](http://arxiv.org/abs/2401.03149)
 
 ---
 
