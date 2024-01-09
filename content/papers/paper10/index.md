@@ -1,7 +1,7 @@
 ---
 title: "Example-based super-resolution fluorescence microscopy" 
 date: 2018-04-23
-tags: ["Computational microscopy","Super-resolution microscopy","AI for science"]
+tags: ["Computational microscopy","Super-resolution microscopy","AI4Science"]
 author: ["Shu Jia, Boran Han, J Nathan Kutz"]
 description: "This paper shows other things. Published in Journal Name, 2015." 
 summary: "Scientific Reports" 
