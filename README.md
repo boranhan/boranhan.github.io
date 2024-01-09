@@ -53,11 +53,7 @@ With GitHub Desktop, commit the changes and push them to the website repository 
 
 Despite the modifications to the PaperMod theme, the website continues to perform well on mobile and desktop devices. Here is an overview of the mobile performance from [PageSpeed Insights](https://pagespeed.web.dev/):
 
-<img width="470" alt="mobile" src="https://github.com/pmichaillat/hugo-website/assets/85443660/1488df3e-19bb-4f9f-8a86-11f361414d92">
-
-And here is an overview of the desktop performance:
-
-<img width="453" alt="desktop" src="https://github.com/pmichaillat/pmichaillat.github.io/assets/85443660/eff134d2-6097-4bc2-bfd7-4f5c18571789">
+<img width="470" alt="mobile" src="research.png">
 
 ## License
 
