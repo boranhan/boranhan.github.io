@@ -19,8 +19,8 @@ editPost:
 
 ##### Download
 
-+ [Paper](hhttp://arxiv.org/abs/2401.03149)
-+ [Online appendix](http://arxiv.org/abs/2401.03149)
++ [Paper](https://arxiv.org/pdf/2401.03149.pdf)
++ [Online appendix](https://arxiv.org/pdf/2401.03149.pdf)
 
 ---
 
