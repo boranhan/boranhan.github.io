@@ -70,8 +70,6 @@ params:
             - name: Archive
               url: archive/
     socialIcons:
-        - name: CV
-          url: cv.pdf
         - name: Email
           url: boranhan.dl@gmail.com
         - name: Location
