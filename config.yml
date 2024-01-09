@@ -23,10 +23,10 @@ menu:
         - name: Newsletter
           url: https://pmichaillat.substack.com
           weight: 4
-        - name: Talks
+        - name: Tags
           url: tags/
           weight: 5
-        - name: Gallery
+        - name: Archive
           url: archive/
           weight: 6
 
@@ -70,9 +70,9 @@ params:
               url: data/
             - name: Newsletter
               url: https://pmichaillat.substack.com
-            - name: Talks
+            - name: Tags
               url: tags/
-            - name: Gallery
+            - name: Archive
               url: archive/
     socialIcons:
         - name: CV
