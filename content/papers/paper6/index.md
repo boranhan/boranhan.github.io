@@ -24,14 +24,13 @@ editPost:
 
 ##### Abstract
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+To investigate the effect of a reagent's rotational and vibrational excitations on the stereo-dynamics of the reaction product, the title reaction is theoretically simulated using the quasi-classical trajectory (QCT) method on the 3A'' and 3A' potential energy surfaces (PESs). The reaction cross section is considered as the only scalar property in this work at four different collision energies. Furthermore the vector properties including two polarization-dependent differential cross sections (PDDCSs), the angular distributions of product' rotational momentum are discussed at one fixed collision energy. Effects of reagents' rotational excitation on the reaction do exist regularly.
 
 
 ---
 
 ##### Citation
 
-Author 1 and Author 2. Year. "Title." *Journal* Volume (Issue): First page–Last page. https://doi.org/paper_doi.
 
 ```BibTeX
 @article{Xu_2012,

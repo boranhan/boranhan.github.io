@@ -1,17 +1,17 @@
 ---
-title: "Paper Title 2" 
-date: 2015-12-01
-tags: ["keyword 1","keyword 2","keyword 4"]
-author: ["Author Name 1", "Author Name 2"]
+title: "A peptide loop and an α-helix N-terminal serving as alternative electron hopping relays in proteins" 
+date: 2012-12-01
+tags: ["Computational science","Density function theory","keyword 4"]
+author: ["Boran Han, Xiaohua Chen, Jing Zhao, Yuxiang Bu"]
 description: "This paper shows other things. Published in Journal Name, 2015." 
-summary: "This paper shows other things using other techniques and different data." 
+summary: "Physical Chemistry Chemical Physics" 
 cover:
-    image: "paper2.png"
+    image: "dft.png"
     alt: "Image caption"
     relative: false
 editPost:
-    URL: "https://doi.org/10.1073/pnas.1816454115"
-    Text: "Other Journal Name"
+    URL: "https://pubs.rsc.org/en/content/articlelanding/2012/cp/c2cp41566f/unauth"
+    Text: "Physical Chemistry Chemical Physics"
 
 ---
 
@@ -19,38 +19,38 @@ editPost:
 
 ##### Download
 
-+ [Paper](paper2.pdf)
-+ [Online appendix](appendix2.pdf)
-+ [Code and data](https://github.com/pmichaillat/unemployment-gap)
++ [Paper](https://pubs.rsc.org/en/content/articlelanding/2012/cp/c2cp41566f/unauth)
 
 ---
 
 ##### Abstract
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+title: "This work presents a density functional theory calculational study for clarifying that peptide loops (–[peptide]n–) including the N-terminal and the C-terminal oligopeptides and the α-helix N-terminal can serve as an intriguing kind of relay elements, as an addition to the known relay stations served by aromatic amino acids for electron hopping migration. For these protein motifs, an excess electron generally prefers to reside at the –NH3+ group in a Rydberg state for the N-terminal peptides, or at the –COOH group in a dipole-bound state for the C-terminal peptides, and at the N-terminal in a dipole-bound π*-orbital state for the peptide loops and α-helices. The electron binding ability can be effectively enhanced by elongation for the α-helix N-terminal, and by bending, twisting, and even β-turning for the peptide chains. The relay property is determined by the local dipole instead of the total dipole of the peptide chains. Although no direct experiment supports this hypothesis, a series of recent studies regarding charge hopping migration associated with the peptide chains and helices could be viewed as strong evidence. But, further studies are still needed by considering the effects from relative redox potential between the donor and acceptor sites, protein environment, and structure water molecules." 
+
 
 ---
 
 ##### Figure X: Figure caption
 
-![](paper2.png)
+![](dft.png)
 
 ---
 
 ##### Citation
 
-Author 1 and Author 2. Year. "Title." *Journal* Volume (Issue): First page–Last page. https://doi.org/paper_doi.
 
 ```BibTeX
-@article{AAYY,
-author = {Author 1 and Author 2},
-doi = {paper_doi},
-journal = {Journal},
-number = {Issue},
-pages = {XXX--YYY},
-title ={Title},
-volume = {Volume},
-year = {Year}}
+@Article{C2CP41566F,
+author ="Han, Boran and Chen, Xiaohua and Zhao, Jing and Bu, Yuxiang",
+title  ="A peptide loop and an α-helix N-terminal serving as alternative electron hopping relays in proteins",
+journal  ="Phys. Chem. Chem. Phys.",
+year  ="2012",
+volume  ="14",
+issue  ="45",
+pages  ="15849-15859",
+publisher  ="The Royal Society of Chemistry",
+doi  ="10.1039/C2CP41566F",
+url  ="http://dx.doi.org/10.1039/C2CP41566F"}
 ```
 
 ---
