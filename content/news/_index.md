@@ -6,6 +6,8 @@ description: ""
 
 ## Recent News
 
+* <span style="color: gray;">[Feb 2024]</span> I'll give a talk at [CSE DSI Machine Learning Seminar @ UMN]([https://ai4diffeqtnsinsci.github.io/](https://cse.umn.edu/dsi/events/cse-dsi-machine-learning-seminar-boran-han-aws-ai)), titled "Towards efficient foundation models via context-awareness and continual pretraining"
+<br> <br>
 
 * <span style="color: gray;">[Jan 2024]</span> We will host the [ICLR 2024 Workshop on AI4DifferentialEquations in Science](https://ai4diffeqtnsinsci.github.io/)! We welcome submissions that push forward the use of AI for solving ordinary or partial differential equations with applications in earth sciences, climate and computational fluid dynamics and beyond.
 <br> <br>
