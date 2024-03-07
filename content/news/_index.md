@@ -6,7 +6,7 @@ description: ""
 
 ## Recent News
 
-* <span style="color: gray;">[Feb 2024]</span> One paper accepted to CVPR. Stayed tuned!
+* <span style="color: gray;">[Feb 2024]</span> One paper accepted to CVPR. Stay tuned!
 <br> <br>
 
 * <span style="color: gray;">[Feb 2024]</span> I'll give a talk at [CSE DSI Machine Learning Seminar @ UMN](https://cse.umn.edu/dsi/events/cse-dsi-machine-learning-seminar-boran-han-aws-ai), titled "Towards efficient foundation models via context-awareness and continual pretraining"
