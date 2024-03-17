@@ -6,6 +6,10 @@ description: ""
 
 ## Recent News
 
+
+* <span style="color: gray;">[Mar 2024]</span> One paper accepted to NAACL findings. Stay tuned!
+<br> <br>
+
 * <span style="color: gray;">[Feb 2024]</span> One paper accepted to CVPR. Stay tuned!
 <br> <br>
 
