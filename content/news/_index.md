@@ -10,7 +10,7 @@ description: ""
 * <span style="color: gray;">[Mar 2024]</span> One paper accepted to NAACL findings. Stay tuned!
 <br> <br>
 
-* <span style="color: gray;">[Feb 2024]</span> One paper accepted to CVPR. Stay tuned!
+* <span style="color: gray;">[Feb 2024]</span> One paper accepted to CVPR titled [Bridging Remote Sensors with Multisensor Geospatial Foundation Models](https://arxiv.org/abs/2404.01260)
 <br> <br>
 
 * <span style="color: gray;">[Feb 2024]</span> I'll give a talk at [CSE DSI Machine Learning Seminar @ UMN](https://cse.umn.edu/dsi/events/cse-dsi-machine-learning-seminar-boran-han-aws-ai), titled "Towards efficient foundation models via context-awareness and continual pretraining"
