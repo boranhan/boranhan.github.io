@@ -6,8 +6,13 @@ description: ""
 
 ## Recent News
 
+* <span style="color: gray;">[May 2024]</span> One paper accepted to ACL titled [CaMML: Context-Aware Multimodal Learner for Large Models](https://arxiv.org/abs/2401.03149)
+<br> <br>
 
-* <span style="color: gray;">[Mar 2024]</span> One paper accepted to NAACL findings. Stay tuned!
+* <span style="color: gray;">[May 2024]</span> Two papers accepted to ICML. Stay tuned!
+<br> <br>
+
+* <span style="color: gray;">[Mar 2024]</span> One paper accepted to NAACL findings titled [CoMM: Collaborative Multi-Agent, Multi-Reasoning-Path Prompting for Complex Problem Solving](https://arxiv.org/abs/2404.17729)
 <br> <br>
 
 * <span style="color: gray;">[Feb 2024]</span> One paper accepted to CVPR titled [Bridging Remote Sensors with Multisensor Geospatial Foundation Models](https://arxiv.org/abs/2404.01260)
