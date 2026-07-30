@@ -969,8 +969,8 @@ button {
 }
 
 .photography-shell {
-  width: min(100% - 32px, 1500px);
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   padding: 0 0 120px;
 }
 
@@ -1562,7 +1562,8 @@ button {
   }
 
   .photography-shell {
-    width: min(100% - 24px, 1500px);
+    width: 100%;
+    margin: 0;
     padding-bottom: 72px;
   }
 
