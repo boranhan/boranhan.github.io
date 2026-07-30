@@ -194,15 +194,21 @@ button {
   inset: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.8;
+  opacity: 0.98;
 }
 
 .hero::after {
   position: absolute;
   inset: 0;
   content: "";
-  background: rgba(9, 11, 13, 0.28);
+  background: rgba(9, 11, 13, 0.1);
   pointer-events: none;
+}
+
+.hero h1,
+.hero-summary,
+.hero .eyebrow {
+  text-shadow: 0 2px 16px rgba(9, 11, 13, 0.78);
 }
 
 .hero-inner {

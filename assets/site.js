@@ -224,88 +224,199 @@
   const pointer = { x: -1000, y: -1000 };
   let width = 0;
   let height = 0;
-  let points = [];
+  let equationLayout = [];
+  let chalkDust = [];
   let frame;
 
-  const colors = ["#65d9d1", "#b8e36d", "#ff7868"];
   const equations = [
-    {
-      label: "ATTENTION",
-      lines: ["Attn(Q,K,V) = softmax(QK^T / sqrt(d_k)) V"],
-      x: 0.6,
-      y: 0.16,
-      phase: 0.2,
-    },
-    {
-      label: "CROSS-ENTROPY",
-      lines: ["L_CE = -sum_i y_i log p_theta(i|x)"],
-      x: 0.68,
-      y: 0.32,
-      phase: 1.4,
-    },
-    {
-      label: "PPO",
-      lines: [
-        "J_PPO = E_t[min(r_t A_t,",
-        "clip(r_t, 1-eps, 1+eps) A_t)]",
-      ],
-      x: 0.59,
-      y: 0.49,
-      phase: 2.7,
-    },
-    {
-      label: "GRPO",
-      lines: [
-        "A_i = (r_i - mean(r)) / std(r)",
-        "J_GRPO = E[1/G sum_i rho_i A_i]",
-      ],
-      x: 0.67,
-      y: 0.68,
-      phase: 4.1,
-    },
-    {
-      label: "DIFFUSION",
-      lines: ["L_diff = E[||eps - eps_theta(x_t,t)||_2^2]"],
-      x: 0.58,
-      y: 0.84,
-      phase: 5.2,
-    },
+    { lines: ["Attn(Q,K,V) =", "softmax(QK^T / sqrt(d_k))V"] },
+    { lines: ["L_CE = -sum_i y_i", "log p_theta(i|x)"] },
+    { lines: ["r_t = pi_theta(a_t|s_t)", "/ pi_old(a_t|s_t)"] },
+    { lines: ["L_PPO = E[min(r_t A_t,", "clip(r_t,1-e,1+e)A_t)]"] },
+    { lines: ["A_i = (R_i - mean(R))", "/ (std(R) + eps)"] },
+    { lines: ["J_GRPO = E[sum_i rho_i A_i/G", "- beta D_KL(pi||pi_ref)]"] },
+    { lines: ["q(x_t|x_0) = N(", "sqrt(a_t)x_0, (1-a_t)I)"] },
+    { lines: ["L_diff = E[||eps -", "eps_theta(x_t,t)||_2^2]"] },
+    { lines: ["grad_theta J = E[", "grad log pi_theta(a|s) A]"] },
+    { lines: ["A_t^GAE = sum_l", "(gamma lambda)^l delta_t+l"] },
+    { lines: ["delta_t = r_t + gamma V(s_t+1)", "- V(s_t)"] },
+    { lines: ["D_KL(p||q) = sum_x p(x)", "log[p(x)/q(x)]"] },
+    { lines: ["H(pi) = -sum_a pi(a|s)", "log pi(a|s)"] },
+    { lines: ["p(x_t|x_<t) =", "softmax(W h_t)"] },
+    { lines: ["h_l = LN(h_l-1 +", "Attn(h_l-1))"] },
+    { lines: ["FFN(x) = W_2 sigma(", "W_1 x + b_1) + b_2"] },
+    { lines: ["W' = W + (alpha/r) B A"] },
+    { lines: ["L_NCE = -log", "exp(sim(z,z+)/tau) / sum_j exp(...)"] },
+    { lines: ["V*(s) = max_a E[", "r + gamma V*(s')]"] },
+    { lines: ["s_theta(x,t) ~", "grad_x log p_t(x)"] },
+    { lines: ["dx_t = [f - .5 g^2 s_theta]dt", "+ g(t)dW_t"] },
+    { lines: ["z = E_phi(x)", "x_hat = D_psi(z)"] },
+    { lines: ["I(X;Z) = E log", "p(x,z) / (p(x)p(z))"] },
+    { lines: ["Q*(s,a) = E[r +", "gamma max_a' Q*(s',a')]"] },
+    { lines: ["L_SFT = -E_(x,y)", "sum_t log pi_theta(y_t|x,y_<t)"] },
+    { lines: ["p(y|x,D) = integral", "p(y|x,w)p(w|D)dw"] },
+    { lines: ["mu = 1/N sum_i x_i", "sigma^2 = 1/N sum_i(x_i-mu)^2"] },
+    { lines: ["z_i = (x_i - mu) /", "sqrt(sigma^2 + eps)"] },
+    { lines: ["MHA(Q,K,V) =", "Concat(head_1,...,head_h)W_o"] },
+    { lines: ["head_i = Attn(QW_i^Q,", "KW_i^K,VW_i^V)"] },
+    { lines: ["p_theta(y|x) =", "prod_t p(y_t|y_<t,x)"] },
+    { lines: ["R(theta) = E_tau~pi", "sum_t gamma^t r_t"] },
   ];
 
-  function drawEquations(time) {
+  const chalkColors = ["#f4f5f2", "#e7eeeb", "#cfe4df", "#dbe7bd"];
+
+  function seededRandom(seed) {
+    let value = seed >>> 0;
+    return () => {
+      value = (value * 1664525 + 1013904223) >>> 0;
+      return value / 4294967296;
+    };
+  }
+
+  function buildEquationLayout() {
     const compact = width < 700;
     const medium = width >= 700 && width < 1050;
-    const seconds = time / 1000;
-    const baseOpacity = compact ? 0.55 : medium ? 0.8 : 0.95;
-    const labelSize = compact ? 9 : 11;
-    const equationSize = compact ? 11 : medium ? 13 : 15;
+    const columns = compact ? 2 : medium ? 3 : 4;
+    const rows = compact ? 7 : medium ? 7 : 8;
+    const count = Math.min(equations.length, columns * rows);
+    const cellWidth = width / columns;
+    const cellHeight = height / rows;
+    const baseSize = compact ? 14 : medium ? 16 : 18;
+    const random = seededRandom(24051988 + columns * 101 + rows * 17);
+    const compactOrder = [0, 3, 7, 5, 11, 14, 18, 9, 16, 19, 1, 23, 12, 21];
+
+    equationLayout = Array.from({ length: count }, (_, index) => {
+      const equationIndex = compact ? compactOrder[index] : index;
+      const equation = equations[equationIndex];
+      const column = index % columns;
+      const row = Math.floor(index / columns);
+      const scale = 0.78 + random() * 0.48;
+      const preferredSize = baseSize * scale;
+      const maxWidth = cellWidth * (compact ? 0.9 : 0.94);
+      const fontFamily =
+        index % 5 === 0
+          ? '"URW Chancery L", "Comic Sans MS", cursive'
+          : 'Georgia, "Times New Roman", serif';
+
+      context.font = `italic 500 ${preferredSize}px ${fontFamily}`;
+      const measuredWidth = Math.max(
+        ...equation.lines.map((line) => context.measureText(line).width)
+      );
+      const fontSize = Math.max(compact ? 9.5 : 12, preferredSize * Math.min(1, maxWidth / measuredWidth));
+      context.font = `italic 500 ${fontSize}px ${fontFamily}`;
+
+      return {
+        lines: equation.lines,
+        x: column * cellWidth + cellWidth * (0.07 + random() * 0.12),
+        y: row * cellHeight + cellHeight * (0.14 + random() * 0.27),
+        rotation: (random() - 0.5) * (compact ? 0.08 : 0.11),
+        phase: random() * Math.PI * 2,
+        depth: 0.4 + random() * 0.8,
+        opacity: (compact ? 0.7 : 0.72) + random() * (compact ? 0.2 : 0.23),
+        color: chalkColors[index % chalkColors.length],
+        fontFamily,
+        fontSize,
+        lineHeight: fontSize * 1.22,
+        textWidth: Math.max(
+          ...equation.lines.map((line) => context.measureText(line).width)
+        ),
+        decorator: index % 6,
+      };
+    });
+
+    chalkDust = Array.from({ length: compact ? 60 : 110 }, () => ({
+      x: random() * width,
+      y: random() * height,
+      radius: 0.35 + random() * 1.1,
+      opacity: 0.05 + random() * 0.13,
+    }));
+  }
+
+  function drawChalkDust() {
+    chalkDust.forEach((speck) => {
+      context.beginPath();
+      context.arc(speck.x, speck.y, speck.radius, 0, Math.PI * 2);
+      context.fillStyle = `rgba(244, 245, 242, ${speck.opacity})`;
+      context.fill();
+    });
+  }
+
+  function drawEquation(equation, index, seconds) {
+    const compact = width < 700;
+    const pointerActive = pointer.x > 0 && pointer.y > 0;
+    const pointerX = pointerActive ? pointer.x / width - 0.5 : 0;
+    const pointerY = pointerActive ? pointer.y / height - 0.5 : 0;
+    const driftX = reducedMotion ? 0 : Math.sin(seconds * 0.055 + equation.phase) * 6;
+    const driftY = reducedMotion ? 0 : Math.cos(seconds * 0.048 + equation.phase) * 4;
+    const parallaxX = pointerX * equation.depth * 13;
+    const parallaxY = pointerY * equation.depth * 9;
+    const pulse = reducedMotion ? 1 : 0.9 + Math.sin(seconds * 0.12 + equation.phase) * 0.1;
+    const behindCopy =
+      equation.x < width * (compact ? 0.88 : 0.56) &&
+      equation.y > height * 0.1 &&
+      equation.y < height * 0.88;
+    const readability = behindCopy ? (compact ? 0.52 : 0.38) : 1;
+    const opacity = equation.opacity * readability * pulse;
+    const totalHeight = equation.lines.length * equation.lineHeight;
 
     context.save();
+    context.translate(
+      equation.x + driftX + parallaxX,
+      equation.y + driftY + parallaxY
+    );
+    context.rotate(
+      equation.rotation +
+        (reducedMotion ? 0 : Math.sin(seconds * 0.035 + equation.phase) * 0.006)
+    );
+    context.font = `italic 500 ${equation.fontSize}px ${equation.fontFamily}`;
     context.textBaseline = "top";
+    context.fillStyle = equation.color;
+    context.lineCap = "round";
+    context.lineJoin = "round";
 
-    equations.forEach((equation, index) => {
-      const compactX = [0.06, 0.2, 0.08, 0.24, 0.05][index];
-      const compactY = [0.09, 0.27, 0.48, 0.68, 0.86][index];
-      const anchorX = (compact ? compactX : equation.x) * width;
-      const anchorY = (compact ? compactY : equation.y) * height;
-      const driftX = reducedMotion ? 0 : Math.sin(seconds * 0.13 + equation.phase) * 8;
-      const driftY = reducedMotion ? 0 : Math.cos(seconds * 0.16 + equation.phase) * 4;
-      const pulse = reducedMotion ? 1 : 0.82 + Math.sin(seconds * 0.22 + equation.phase) * 0.18;
-      const x = anchorX + driftX;
-      const y = anchorY + driftY;
-
-      context.globalAlpha = baseOpacity * pulse;
-      context.fillStyle = index % 2 === 0 ? "#65d9d1" : "#b8e36d";
-      context.font = `700 ${labelSize}px "DejaVu Sans Mono", "Courier New", monospace`;
-      context.fillText(equation.label, x, y);
-
-      context.globalAlpha = baseOpacity * pulse * 0.9;
-      context.fillStyle = "#f4f5f2";
-      context.font = `400 ${equationSize}px "DejaVu Sans Mono", "Courier New", monospace`;
-      equation.lines.forEach((line, lineIndex) => {
-        context.fillText(line, x, y + labelSize + 7 + lineIndex * (equationSize + 5));
-      });
+    equation.lines.forEach((line, lineIndex) => {
+      const y = lineIndex * equation.lineHeight;
+      context.globalAlpha = opacity * 0.92;
+      context.fillText(line, 0, y);
+      context.globalAlpha = opacity * 0.2;
+      context.fillText(line, 0.7, y - 0.4);
     });
+
+    context.strokeStyle = equation.color;
+    context.lineWidth = Math.max(0.7, equation.fontSize * 0.055);
+    context.globalAlpha = opacity * 0.58;
+
+    if (equation.decorator === 0 || equation.decorator === 3) {
+      const underlineY = totalHeight + equation.fontSize * 0.08;
+      context.beginPath();
+      context.moveTo(-2, underlineY);
+      context.quadraticCurveTo(
+        equation.textWidth * 0.48,
+        underlineY + (index % 2 ? 2 : -1),
+        equation.textWidth * 0.9,
+        underlineY
+      );
+      context.stroke();
+    } else if (equation.decorator === 1) {
+      const arrowY = totalHeight + equation.fontSize * 0.22;
+      context.beginPath();
+      context.moveTo(equation.textWidth * 0.18, arrowY);
+      context.lineTo(equation.textWidth * 0.72, arrowY);
+      context.lineTo(equation.textWidth * 0.68, arrowY - 3);
+      context.moveTo(equation.textWidth * 0.72, arrowY);
+      context.lineTo(equation.textWidth * 0.68, arrowY + 3);
+      context.stroke();
+    } else if (equation.decorator === 2) {
+      context.beginPath();
+      context.arc(
+        equation.textWidth * 0.84,
+        totalHeight * 0.45,
+        equation.fontSize * 0.55,
+        0,
+        Math.PI * 2
+      );
+      context.stroke();
+    }
 
     context.restore();
   }
@@ -318,60 +429,15 @@
     canvas.width = Math.floor(width * ratio);
     canvas.height = Math.floor(height * ratio);
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
-
-    const count = Math.max(26, Math.min(78, Math.floor((width * height) / 19000)));
-    points = Array.from({ length: count }, (_, index) => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.28,
-      vy: (Math.random() - 0.5) * 0.28,
-      radius: index % 9 === 0 ? 2.1 : 1.1,
-      color: colors[index % colors.length],
-    }));
-
+    buildEquationLayout();
     draw();
   }
 
   function draw(time = 0) {
     context.clearRect(0, 0, width, height);
-    drawEquations(time);
-
-    points.forEach((point, index) => {
-      if (!reducedMotion) {
-        point.x += point.vx;
-        point.y += point.vy;
-
-        const dx = point.x - pointer.x;
-        const dy = point.y - pointer.y;
-        const distance = Math.hypot(dx, dy);
-        if (distance < 140 && distance > 0) {
-          point.x += (dx / distance) * 0.35;
-          point.y += (dy / distance) * 0.35;
-        }
-
-        if (point.x < -10) point.x = width + 10;
-        if (point.x > width + 10) point.x = -10;
-        if (point.y < -10) point.y = height + 10;
-        if (point.y > height + 10) point.y = -10;
-      }
-
-      for (let next = index + 1; next < points.length; next += 1) {
-        const neighbor = points[next];
-        const distance = Math.hypot(point.x - neighbor.x, point.y - neighbor.y);
-        if (distance < 150) {
-          context.beginPath();
-          context.moveTo(point.x, point.y);
-          context.lineTo(neighbor.x, neighbor.y);
-          context.strokeStyle = `rgba(101, 217, 209, ${0.13 * (1 - distance / 150)})`;
-          context.lineWidth = 1;
-          context.stroke();
-        }
-      }
-
-      context.beginPath();
-      context.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
-      context.fillStyle = point.color;
-      context.fill();
+    drawChalkDust();
+    equationLayout.forEach((equation, index) => {
+      drawEquation(equation, index, time / 1000);
     });
 
     if (!reducedMotion) frame = window.requestAnimationFrame(draw);
