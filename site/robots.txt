@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://boranhan.github.io/sitemap.xml
