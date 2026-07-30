@@ -3,13 +3,12 @@
 Personal research website published at
 [boranhan.github.io](https://boranhan.github.io/).
 
-The active site is a dependency-free static build in `site/`. GitHub Actions
-deploys that directory directly to GitHub Pages.
+The active site is a dependency-free static build at the repository root.
+GitHub Pages publishes the `main` branch directly.
 
 ## Local preview
 
 ```bash
-cd site
 python3 -m http.server 8000
 ```
 
@@ -17,9 +16,9 @@ Then open `http://localhost:8000`.
 
 ## Structure
 
-- `site/index.html`: homepage
-- `site/research/`: research overview
-- `site/publications/`: selected publication record
-- `site/about/`: biography and experience
-- `site/photography/`: photography contact sheet
-- `site/assets/`: shared styles, interaction code, and images
+- `index.html`: homepage
+- `research/`: research overview
+- `publications/`: selected publication record
+- `about/`: biography and experience
+- `photography/`: photography contact sheet
+- `assets/`: shared styles, interaction code, and images
