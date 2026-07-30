@@ -1157,6 +1157,10 @@ button {
   color: var(--faint);
 }
 
+.lightbox-metadata {
+  color: var(--faint);
+}
+
 .lightbox-control {
   position: fixed;
   z-index: 2;

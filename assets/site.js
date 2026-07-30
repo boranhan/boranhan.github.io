@@ -108,6 +108,7 @@
   if (lightbox && photoButtons.length) {
     const lightboxImage = lightbox.querySelector(".lightbox-image");
     const lightboxTitle = lightbox.querySelector(".lightbox-title");
+    const lightboxMetadata = lightbox.querySelector(".lightbox-metadata");
     const lightboxCounter = lightbox.querySelector(".lightbox-counter");
     const closeButton = lightbox.querySelector(".lightbox-close");
     const previousButton = lightbox.querySelector(".lightbox-previous");
@@ -118,10 +119,15 @@
     function getPhotoDetails(button) {
       const location = button.dataset.location;
       const date = button.dataset.date;
-      const series = location === "Iceland" ? "Fire & Ice" : location;
+      const series = button.dataset.series || (location === "Iceland" ? "Fire & Ice" : location);
       const context = series === location ? date : `${location} / ${date}`;
+      const metadata = [
+        button.dataset.camera,
+        button.dataset.focalLength,
+        button.dataset.settings,
+      ].filter(Boolean);
 
-      return { series, context };
+      return { series, context, metadata };
     }
 
     photoButtons.forEach((button, index) => {
@@ -144,11 +150,13 @@
     function renderPhoto() {
       const button = activePhotos[activeIndex];
       const sourceImage = button.querySelector("img");
-      const { series, context } = getPhotoDetails(button);
+      const { series, context, metadata } = getPhotoDetails(button);
 
       lightboxImage.src = sourceImage.currentSrc || sourceImage.src;
       lightboxImage.alt = sourceImage.alt;
       lightboxTitle.textContent = `${series} / ${context}`;
+      lightboxMetadata.textContent = metadata.join(" / ");
+      lightboxMetadata.hidden = metadata.length === 0;
       lightboxCounter.textContent = `${String(activeIndex + 1).padStart(2, "0")} / ${String(activePhotos.length).padStart(2, "0")}`;
 
       const nextImage = activePhotos[(activeIndex + 1) % activePhotos.length].querySelector("img");
@@ -267,16 +275,14 @@
     const compact = width < 700;
     const medium = width >= 700 && width < 1050;
     const seconds = time / 1000;
-    const baseOpacity = compact ? 0.11 : medium ? 0.17 : 0.22;
-    const labelSize = compact ? 8 : 10;
-    const equationSize = compact ? 10 : medium ? 11 : 13;
+    const baseOpacity = compact ? 0.55 : medium ? 0.8 : 0.95;
+    const labelSize = compact ? 9 : 11;
+    const equationSize = compact ? 11 : medium ? 13 : 15;
 
     context.save();
     context.textBaseline = "top";
 
     equations.forEach((equation, index) => {
-      if (compact && (index === 1 || index === 3)) return;
-
       const compactX = [0.06, 0.2, 0.08, 0.24, 0.05][index];
       const compactY = [0.09, 0.27, 0.48, 0.68, 0.86][index];
       const anchorX = (compact ? compactX : equation.x) * width;
@@ -292,7 +298,7 @@
       context.font = `700 ${labelSize}px "DejaVu Sans Mono", "Courier New", monospace`;
       context.fillText(equation.label, x, y);
 
-      context.globalAlpha = baseOpacity * pulse * 0.78;
+      context.globalAlpha = baseOpacity * pulse * 0.9;
       context.fillStyle = "#f4f5f2";
       context.font = `400 ${equationSize}px "DejaVu Sans Mono", "Courier New", monospace`;
       equation.lines.forEach((line, lineIndex) => {
