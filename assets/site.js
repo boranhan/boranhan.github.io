@@ -115,13 +115,37 @@
     let activePhotos = [];
     let activeIndex = 0;
 
+    function getPhotoDetails(button) {
+      const location = button.dataset.location;
+      const date = button.dataset.date;
+      const series = location === "Iceland" ? "Fire & Ice" : location;
+      const context = series === location ? date : `${location} / ${date}`;
+
+      return { series, context };
+    }
+
+    photoButtons.forEach((button) => {
+      const { series, context } = getPhotoDetails(button);
+      const label = document.createElement("span");
+      const labelTitle = document.createElement("strong");
+      const labelContext = document.createElement("small");
+
+      label.className = "photo-label";
+      label.setAttribute("aria-hidden", "true");
+      labelTitle.textContent = series;
+      labelContext.textContent = context;
+      label.append(labelTitle, labelContext);
+      button.append(label);
+    });
+
     function renderPhoto() {
       const button = activePhotos[activeIndex];
       const sourceImage = button.querySelector("img");
+      const { series, context } = getPhotoDetails(button);
 
       lightboxImage.src = sourceImage.currentSrc || sourceImage.src;
       lightboxImage.alt = sourceImage.alt;
-      lightboxTitle.textContent = `${button.dataset.location} / ${button.dataset.date}`;
+      lightboxTitle.textContent = `${series} / ${context}`;
       lightboxCounter.textContent = `${String(activeIndex + 1).padStart(2, "0")} / ${String(activePhotos.length).padStart(2, "0")}`;
 
       const nextImage = activePhotos[(activeIndex + 1) % activePhotos.length].querySelector("img");
