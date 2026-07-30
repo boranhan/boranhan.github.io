@@ -69,39 +69,6 @@
     });
   });
 
-  const photoGrids = document.querySelectorAll(".photo-grid");
-  let photoLayoutFrame;
-
-  function layoutPhotoGrids() {
-    window.cancelAnimationFrame(photoLayoutFrame);
-    photoLayoutFrame = window.requestAnimationFrame(() => {
-      photoGrids.forEach((grid) => {
-        const styles = window.getComputedStyle(grid);
-        const rowHeight = Number.parseFloat(styles.gridAutoRows);
-        const rowGap = Number.parseFloat(styles.rowGap);
-
-        grid.querySelectorAll(".photo-frame").forEach((frame) => {
-          const image = frame.querySelector("img");
-          const imageHeight = image.getBoundingClientRect().height;
-          if (!imageHeight) return;
-
-          const rowSpan = Math.ceil((imageHeight + rowGap) / (rowHeight + rowGap));
-          frame.style.gridRowEnd = `span ${rowSpan}`;
-        });
-      });
-    });
-  }
-
-  if (photoGrids.length) {
-    layoutPhotoGrids();
-    photoGrids.forEach((grid) => {
-      grid.querySelectorAll("img").forEach((image) => {
-        if (!image.complete) image.addEventListener("load", layoutPhotoGrids, { once: true });
-      });
-    });
-    window.addEventListener("resize", layoutPhotoGrids);
-  }
-
   const lightbox = document.querySelector(".photo-lightbox");
   const photoButtons = document.querySelectorAll(".photo-open");
 

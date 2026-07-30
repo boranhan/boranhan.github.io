@@ -1020,34 +1020,25 @@ button {
 
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  grid-auto-flow: dense;
-  grid-auto-rows: 1px;
-  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
 }
 
-.photo-frame {
+.photo-frame,
+.photo-frame--feature,
+.photo-frame--third,
+.photo-frame--two-thirds {
   position: relative;
+  aspect-ratio: 1;
   min-width: 0;
   margin: 0;
-  grid-column: span 6;
-}
-
-.photo-frame--feature {
-  grid-column: span 6;
-}
-
-.photo-frame--third {
-  grid-column: span 4;
-}
-
-.photo-frame--two-thirds {
-  grid-column: span 8;
+  grid-column: auto;
 }
 
 .photo-open {
   position: relative;
   width: 100%;
+  height: 100%;
   padding: 0;
   display: block;
   overflow: hidden;
@@ -1058,7 +1049,8 @@ button {
 
 .photo-open img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   transition: filter 350ms ease, transform 500ms ease;
 }
 
@@ -1368,6 +1360,10 @@ button {
   .portrait-frame img {
     width: 280px;
   }
+
+  .photo-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 680px) {
@@ -1593,6 +1589,7 @@ button {
   }
 
   .photo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
   }
 
@@ -1600,7 +1597,7 @@ button {
   .photo-frame--feature,
   .photo-frame--third,
   .photo-frame--two-thirds {
-    grid-column: span 12;
+    grid-column: auto;
   }
 
   .lightbox-stage {
