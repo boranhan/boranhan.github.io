@@ -533,116 +533,157 @@ button {
   font-size: 23px;
 }
 
-.research-feature {
+.research-programs .section-intro {
+  margin-bottom: 20px;
+}
+
+.research-program {
+  --program-accent: var(--cyan);
+  padding: 88px 0;
+  border-top: 1px solid var(--line);
+}
+
+.research-program:last-child {
+  padding-bottom: 0;
+}
+
+.research-program--agents {
+  --program-accent: var(--coral);
+}
+
+.research-program--foundation {
+  --program-accent: var(--lime);
+}
+
+.research-program--systems {
+  --program-accent: #ffd166;
+}
+
+.research-program-header {
+  margin-bottom: 40px;
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
-  min-height: 540px;
+  grid-template-columns: minmax(180px, 0.7fr) minmax(0, 2fr);
+  gap: 64px;
+}
+
+.research-program-number {
+  margin: 8px 0 0;
+  color: var(--program-accent);
+  font-size: 11px;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.research-program-header h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 62px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.research-program-header div > p {
+  max-width: 710px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.paper-collage {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.paper-tile {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
   border: 1px solid var(--line);
   background: var(--bg-raised);
+  color: var(--ink);
+  transition: border-color 250ms ease, transform 250ms ease;
 }
 
-.research-feature + .research-feature {
-  margin-top: 36px;
+.paper-tile--five {
+  grid-column: span 5;
 }
 
-.research-feature:nth-child(even) {
-  grid-template-columns: minmax(300px, 0.75fr) minmax(0, 1.25fr);
+.paper-tile--six {
+  grid-column: span 6;
 }
 
-.research-feature:nth-child(even) .feature-media {
-  order: 2;
+.paper-tile--seven {
+  grid-column: span 7;
 }
 
-.feature-media {
-  min-height: 460px;
+.paper-tile--full {
+  grid-column: span 12;
+}
+
+.paper-tile:hover {
+  border-color: var(--program-accent);
+  transform: translateY(-3px);
+}
+
+.paper-tile:focus-visible {
+  outline: 2px solid var(--program-accent);
+  outline-offset: 3px;
+}
+
+.paper-figure {
+  height: 300px;
+  padding: 22px;
+  display: grid;
+  place-items: center;
   overflow: hidden;
-  background: #ecece7;
+  background: #f2f2ee;
 }
 
-.feature-media img {
+.paper-tile--full .paper-figure {
+  height: 380px;
+}
+
+.paper-figure img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transition: transform 420ms ease;
+  transition: transform 400ms ease;
 }
 
-.research-feature:hover .feature-media img {
-  transform: scale(1.02);
+.paper-tile:hover .paper-figure img {
+  transform: scale(1.012);
 }
 
-.feature-copy {
-  padding: clamp(30px, 5vw, 64px);
+.paper-tile-copy {
+  padding: 24px 26px 28px;
+}
+
+.paper-tile-meta {
+  margin-bottom: 16px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 18px;
+  color: var(--program-accent);
+  font-size: 10px;
+  font-weight: 750;
+  text-transform: uppercase;
 }
 
-.feature-number {
-  margin-bottom: 60px;
-  color: var(--coral);
-  font-family: var(--serif);
-  font-size: 18px;
-}
-
-.feature-copy h2 {
-  margin: 0;
-  font-family: var(--serif);
-  font-size: 54px;
-  font-weight: 400;
-  line-height: 1.05;
-}
-
-.feature-copy p {
-  margin: 22px 0 0;
-  color: var(--muted);
-}
-
-.text-link {
-  width: fit-content;
-  margin-top: 24px;
-  padding-bottom: 3px;
-  border-bottom: 1px solid var(--cyan);
+.paper-tile-meta span:last-child {
   color: var(--ink);
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 15px;
+  line-height: 0.8;
 }
 
-.text-link::after {
-  margin-left: 8px;
-  content: "\2197";
-  color: var(--cyan);
-}
-
-.research-principles {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
-}
-
-.principle {
-  min-height: 260px;
-  padding: 32px;
-  background: var(--bg);
-}
-
-.principle span {
-  color: var(--lime);
-  font-size: 12px;
-}
-
-.principle h3 {
-  margin: 40px 0 14px;
-  font-family: var(--serif);
-  font-size: 30px;
-  font-weight: 400;
-}
-
-.principle p {
+.paper-tile h3 {
+  max-width: 900px;
   margin: 0;
-  color: var(--muted);
-  font-size: 14px;
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.18;
 }
 
 .filter-bar {
@@ -947,7 +988,7 @@ button {
 }
 
 .photo-frame--feature {
-  grid-column: span 12;
+  grid-column: span 6;
 }
 
 .photo-frame--third {
@@ -1208,10 +1249,6 @@ button {
     font-size: 78px;
   }
 
-  .feature-copy h2 {
-    font-size: 42px;
-  }
-
   .manifesto {
     font-size: 42px;
   }
@@ -1228,25 +1265,19 @@ button {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .research-feature,
-  .research-feature:nth-child(even) {
+  .research-program-header {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
-  .research-feature:nth-child(even) .feature-media {
-    order: 0;
+  .paper-tile--five,
+  .paper-tile--six,
+  .paper-tile--seven {
+    grid-column: span 6;
   }
 
-  .feature-media {
-    min-height: 330px;
-  }
-
-  .feature-number {
-    margin-bottom: 35px;
-  }
-
-  .research-principles {
-    grid-template-columns: 1fr;
+  .paper-tile--full {
+    grid-column: span 12;
   }
 
   .portrait-frame {
@@ -1350,12 +1381,46 @@ button {
     font-size: 18px;
   }
 
-  .feature-copy {
-    padding: 30px 24px 38px;
+  .research-program {
+    padding: 58px 0;
   }
 
-  .feature-media {
-    min-height: 270px;
+  .research-program-header {
+    margin-bottom: 28px;
+  }
+
+  .research-program-header h2 {
+    font-size: 44px;
+  }
+
+  .research-program-header div > p {
+    font-size: 15px;
+  }
+
+  .paper-collage {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .paper-tile--five,
+  .paper-tile--six,
+  .paper-tile--seven,
+  .paper-tile--full {
+    grid-column: auto;
+  }
+
+  .paper-figure,
+  .paper-tile--full .paper-figure {
+    height: 245px;
+    padding: 14px;
+  }
+
+  .paper-tile-copy {
+    padding: 20px;
+  }
+
+  .paper-tile h3 {
+    font-size: 23px;
   }
 
   .filter-bar {
