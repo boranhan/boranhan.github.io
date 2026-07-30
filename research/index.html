@@ -36,9 +36,9 @@
           <p class="eyebrow">Research</p>
           <h1 class="page-title">Models that <em>learn</em>, reason, and adapt.</h1>
           <p class="page-lede">
-            My work connects reasoning, agentic reinforcement learning, foundation models,
-            and efficient systems. These programs share one goal: useful intelligence that
-            remains adaptive, grounded, and practical.
+            My work connects reasoning, reinforcement learning, autonomous agents,
+            foundation-model pretraining, and efficient systems. These programs share one
+            goal: useful intelligence that remains adaptive, grounded, and practical.
           </p>
         </div>
       </header>
@@ -46,8 +46,8 @@
       <section class="section">
         <div class="section-shell research-programs">
           <div class="section-intro reveal">
-            <p class="section-label">Research programs / 01-04</p>
-            <h2>Four connected lines of <em>inquiry.</em></h2>
+            <p class="section-label">Research programs / 01-05</p>
+            <h2>Five connected lines of <em>inquiry.</em></h2>
           </div>
 
           <section class="research-program research-program--reasoning reveal" aria-labelledby="reasoning-title">
@@ -61,133 +61,180 @@
                 </p>
               </div>
             </header>
-            <div class="paper-collage">
-              <a class="paper-tile paper-tile--seven" href="https://arxiv.org/abs/2602.19455" target="_blank" rel="noreferrer">
-                <div class="paper-figure">
-                  <img src="/assets/images/sentsr.webp" alt="SenTSR-Bench knowledge injection and time-series reasoning framework" loading="lazy" decoding="async">
-                </div>
-                <div class="paper-tile-copy">
-                  <div class="paper-tile-meta"><span>AISTATS 2026</span><span aria-hidden="true">&nearr;</span></div>
-                  <h3>SenTSR-Bench: Thinking with Injected Knowledge for Time-Series Reasoning</h3>
-                </div>
-              </a>
-              <a class="paper-tile paper-tile--five" href="https://arxiv.org/abs/2401.03149" target="_blank" rel="noreferrer">
-                <div class="paper-figure">
-                  <img src="/assets/images/camml.webp" alt="CaMML examples of context-aware multimodal reasoning" loading="lazy" decoding="async">
-                </div>
-                <div class="paper-tile-copy">
-                  <div class="paper-tile-meta"><span>ACL 2024</span><span aria-hidden="true">&nearr;</span></div>
-                  <h3>CaMML: Context-Aware Multimodal Learner for Large Models</h3>
-                </div>
-              </a>
-              <a class="paper-tile paper-tile--full" href="https://arxiv.org/abs/2404.17729" target="_blank" rel="noreferrer">
-                <div class="paper-figure">
-                  <img src="/assets/images/comm.webp" alt="CoMM collaborative multi-agent and multi-reasoning-path prompting method" loading="lazy" decoding="async">
-                </div>
-                <div class="paper-tile-copy">
-                  <div class="paper-tile-meta"><span>NAACL Findings 2024</span><span aria-hidden="true">&nearr;</span></div>
-                  <h3>CoMM: Collaborative Multi-Agent, Multi-Reasoning-Path Prompting for Complex Problem Solving</h3>
-                </div>
-              </a>
-            </div>
+            <figure class="research-collage">
+              <div class="research-collage-grid">
+                <a class="collage-panel collage-panel--seven" href="https://arxiv.org/abs/2602.19455" target="_blank" rel="noreferrer">
+                  <span class="collage-visual">
+                    <img src="/assets/images/sentsr.webp" alt="SenTSR-Bench knowledge injection and time-series reasoning framework" loading="lazy" decoding="async">
+                  </span>
+                  <span class="collage-label">
+                    <span class="collage-index">01</span>
+                    <span class="collage-title"><strong>SenTSR-Bench</strong><small>Thinking with Injected Knowledge for Time-Series Reasoning</small></span>
+                    <span class="collage-venue">AISTATS 2026 <span aria-hidden="true">&nearr;</span></span>
+                  </span>
+                </a>
+                <a class="collage-panel collage-panel--five" href="https://arxiv.org/abs/2401.03149" target="_blank" rel="noreferrer">
+                  <span class="collage-visual">
+                    <img src="/assets/images/camml.webp" alt="CaMML examples of context-aware multimodal reasoning" loading="lazy" decoding="async">
+                  </span>
+                  <span class="collage-label">
+                    <span class="collage-index">02</span>
+                    <span class="collage-title"><strong>CaMML</strong><small>Context-Aware Multimodal Learner for Large Models</small></span>
+                    <span class="collage-venue">ACL 2024 <span aria-hidden="true">&nearr;</span></span>
+                  </span>
+                </a>
+                <a class="collage-panel collage-panel--full" href="https://arxiv.org/abs/2404.17729" target="_blank" rel="noreferrer">
+                  <span class="collage-visual">
+                    <img src="/assets/images/comm.webp" alt="CoMM collaborative multi-agent and multi-reasoning-path prompting method" loading="lazy" decoding="async">
+                  </span>
+                  <span class="collage-label">
+                    <span class="collage-index">03</span>
+                    <span class="collage-title"><strong>CoMM</strong><small>Collaborative Multi-Agent, Multi-Reasoning-Path Prompting for Complex Problem Solving</small></span>
+                    <span class="collage-venue">NAACL 2024 <span aria-hidden="true">&nearr;</span></span>
+                  </span>
+                </a>
+              </div>
+              <figcaption>Knowledge injection / multimodal context / collaborative reasoning</figcaption>
+            </figure>
+          </section>
+
+          <section class="research-program research-program--rl reveal" aria-labelledby="rl-title">
+            <header class="research-program-header">
+              <p class="research-program-number">02 / Reinforcement learning</p>
+              <div>
+                <h2 id="rl-title">Reinforcement learning</h2>
+                <p>
+                  Reconciling skill discovery with policy optimization and making large-scale
+                  LLM reinforcement learning efficient across heterogeneous compute.
+                </p>
+              </div>
+            </header>
+            <figure class="research-collage">
+              <div class="research-collage-grid">
+                <a class="collage-panel collage-panel--six" href="https://arxiv.org/abs/2606.01619" target="_blank" rel="noreferrer">
+                  <span class="collage-visual">
+                    <img src="/assets/images/reskill.webp" alt="ReSkill framework for skill creation and policy optimization in agentic reinforcement learning" loading="lazy" decoding="async">
+                  </span>
+                  <span class="collage-label">
+                    <span class="collage-index">01</span>
+                    <span class="collage-title"><strong>ReSkill</strong><small>Reconciling Skill Creation with Policy Optimization in Agentic RL</small></span>
+                    <span class="collage-venue">2026 <span aria-hidden="true">&nearr;</span></span>
+                  </span>
+                </a>
+                <a class="collage-panel collage-panel--six" href="https://arxiv.org/abs/2512.12476" target="_blank" rel="noreferrer">
+                  <span class="collage-visual">
+                    <img src="/assets/images/hetrl.webp" alt="HetRL reinforcement learning framework for heterogeneous compute environments" loading="lazy" decoding="async">
+                  </span>
+                  <span class="collage-label">
+                    <span class="collage-index">02</span>
+                    <span class="collage-title"><strong>HetRL</strong><small>Efficient Reinforcement Learning for LLMs in Heterogeneous Environments</small></span>
+                    <span class="collage-venue">MLSys 2026 <span aria-hidden="true">&nearr;</span></span>
+                  </span>
+                </a>
+              </div>
+              <figcaption>Skill creation / policy optimization / heterogeneous RL</figcaption>
+            </figure>
           </section>
 
           <section class="research-program research-program--agents reveal" aria-labelledby="agents-title">
             <header class="research-program-header">
-              <p class="research-program-number">02 / Agentic RL &amp; agents</p>
+              <p class="research-program-number">03 / Agents</p>
               <div>
-                <h2 id="agents-title">Agentic RL &amp; agents</h2>
+                <h2 id="agents-title">Agents</h2>
                 <p>
-                  Building agents that create reusable skills, automate end-to-end workflows,
-                  collaborate through distinct reasoning paths, and learn efficiently at scale.
+                  Building autonomous systems that create reusable capabilities, coordinate
+                  specialized reasoning roles, and automate end-to-end machine learning workflows.
                 </p>
               </div>
             </header>
-            <div class="paper-collage">
-              <a class="paper-tile paper-tile--seven" href="https://arxiv.org/abs/2606.01619" target="_blank" rel="noreferrer">
-                <div class="paper-figure">
-                  <img src="/assets/images/reskill.webp" alt="ReSkill framework for skill creation and policy optimization in agentic reinforcement learning" loading="lazy" decoding="async">
-                </div>
-                <div class="paper-tile-copy">
-                  <div class="paper-tile-meta"><span>Preprint 2026</span><span aria-hidden="true">&nearr;</span></div>
-                  <h3>ReSkill: Reconciling Skill Creation with Policy Optimization in Agentic RL</h3>
-                </div>
-              </a>
-              <a class="paper-tile paper-tile--five" href="https://arxiv.org/abs/2505.13941" target="_blank" rel="noreferrer">
-                <div class="paper-figure">
-                  <img src="/assets/images/mlzero.webp" alt="MLZero multi-agent system for end-to-end machine learning automation" loading="lazy" decoding="async">
-                </div>
-                <div class="paper-tile-copy">
-                  <div class="paper-tile-meta"><span>NeurIPS 2025</span><span aria-hidden="true">&nearr;</span></div>
-                  <h3>MLZero: A Multi-Agent System for End-to-end Machine Learning Automation</h3>
-                </div>
-              </a>
-              <a class="paper-tile paper-tile--five" href="https://arxiv.org/abs/2512.12476" target="_blank" rel="noreferrer">
-                <div class="paper-figure">
-                  <img src="/assets/images/hetrl.webp" alt="HetRL reinforcement learning framework for heterogeneous environments" loading="lazy" decoding="async">
-                </div>
-                <div class="paper-tile-copy">
-                  <div class="paper-tile-meta"><span>MLSys 2026</span><span aria-hidden="true">&nearr;</span></div>
-                  <h3>HetRL: Efficient Reinforcement Learning for LLMs in Heterogeneous Environments</h3>
-                </div>
-              </a>
-              <a class="paper-tile paper-tile--seven" href="https://arxiv.org/abs/2404.17729" target="_blank" rel="noreferrer">
-                <div class="paper-figure">
-                  <img src="/assets/images/comm.webp" alt="CoMM collaborative multi-agent and multi-reasoning-path prompting method" loading="lazy" decoding="async">
-                </div>
-                <div class="paper-tile-copy">
-                  <div class="paper-tile-meta"><span>NAACL Findings 2024</span><span aria-hidden="true">&nearr;</span></div>
-                  <h3>CoMM: Collaborative Multi-Agent, Multi-Reasoning-Path Prompting for Complex Problem Solving</h3>
-                </div>
-              </a>
-            </div>
+            <figure class="research-collage">
+              <div class="research-collage-grid">
+                <a class="collage-panel collage-panel--seven" href="https://arxiv.org/abs/2505.13941" target="_blank" rel="noreferrer">
+                  <span class="collage-visual">
+                    <img src="/assets/images/mlzero.webp" alt="MLZero multi-agent system for end-to-end machine learning automation" loading="lazy" decoding="async">
+                  </span>
+                  <span class="collage-label">
+                    <span class="collage-index">01</span>
+                    <span class="collage-title"><strong>MLZero</strong><small>A Multi-Agent System for End-to-end Machine Learning Automation</small></span>
+                    <span class="collage-venue">NeurIPS 2025 <span aria-hidden="true">&nearr;</span></span>
+                  </span>
+                </a>
+                <a class="collage-panel collage-panel--five" href="https://arxiv.org/abs/2404.17729" target="_blank" rel="noreferrer">
+                  <span class="collage-visual">
+                    <img src="/assets/images/comm.webp" alt="CoMM collaborative multi-agent and multi-reasoning-path prompting method" loading="lazy" decoding="async">
+                  </span>
+                  <span class="collage-label">
+                    <span class="collage-index">02</span>
+                    <span class="collage-title"><strong>CoMM</strong><small>Collaborative Multi-Agent, Multi-Reasoning-Path Prompting</small></span>
+                    <span class="collage-venue">NAACL 2024 <span aria-hidden="true">&nearr;</span></span>
+                  </span>
+                </a>
+                <a class="collage-panel collage-panel--full" href="https://arxiv.org/abs/2606.01619" target="_blank" rel="noreferrer">
+                  <span class="collage-visual">
+                    <img src="/assets/images/reskill.webp" alt="ReSkill agent creating and evaluating reusable skills during policy optimization" loading="lazy" decoding="async">
+                  </span>
+                  <span class="collage-label">
+                    <span class="collage-index">03</span>
+                    <span class="collage-title"><strong>ReSkill</strong><small>Skill creation and policy optimization for adaptive agents</small></span>
+                    <span class="collage-venue">2026 <span aria-hidden="true">&nearr;</span></span>
+                  </span>
+                </a>
+              </div>
+              <figcaption>Workflow automation / multi-agent collaboration / reusable skills</figcaption>
+            </figure>
           </section>
 
-          <section class="research-program research-program--foundation reveal" aria-labelledby="foundation-title">
+          <section class="research-program research-program--pretraining reveal" aria-labelledby="pretraining-title">
             <header class="research-program-header">
-              <p class="research-program-number">03 / Foundation models</p>
+              <p class="research-program-number">04 / Pretraining</p>
               <div>
-                <h2 id="foundation-title">Foundation models</h2>
+                <h2 id="pretraining-title">Pretraining &amp; foundation models</h2>
                 <p>
                   Learning broad priors for time series, tabular data, and multisensor Earth
                   observation so one model can transfer across data regimes and downstream tasks.
                 </p>
               </div>
             </header>
-            <div class="paper-collage">
-              <a class="paper-tile paper-tile--seven" href="https://huggingface.co/amazon/chronos-2" target="_blank" rel="noreferrer">
-                <div class="paper-figure">
-                  <img src="/assets/images/chronos-2.webp" alt="Chronos-2 architecture for universal time-series forecasting" loading="lazy" decoding="async">
-                </div>
-                <div class="paper-tile-copy">
-                  <div class="paper-tile-meta"><span>Technical report 2025</span><span aria-hidden="true">&nearr;</span></div>
-                  <h3>Chronos-2: From Univariate to Universal Forecasting</h3>
-                </div>
-              </a>
-              <a class="paper-tile paper-tile--five" href="https://huggingface.co/autogluon/mitra-regressor" target="_blank" rel="noreferrer">
-                <div class="paper-figure">
-                  <img src="/assets/images/mitra.webp" alt="Mitra mixed synthetic priors and tabular foundation model architecture" loading="lazy" decoding="async">
-                </div>
-                <div class="paper-tile-copy">
-                  <div class="paper-tile-meta"><span>NeurIPS 2025</span><span aria-hidden="true">&nearr;</span></div>
-                  <h3>Mitra: Mixed Synthetic Priors for Enhancing Tabular Foundation Models</h3>
-                </div>
-              </a>
-              <a class="paper-tile paper-tile--full" href="https://arxiv.org/abs/2404.01260" target="_blank" rel="noreferrer">
-                <div class="paper-figure">
-                  <img src="/assets/images/msgfm.webp" alt="msGFM cross-sensor pretraining and downstream transfer architecture" loading="lazy" decoding="async">
-                </div>
-                <div class="paper-tile-copy">
-                  <div class="paper-tile-meta"><span>CVPR 2024</span><span aria-hidden="true">&nearr;</span></div>
-                  <h3>msGFM: Bridging Remote Sensors with Multisensor Geospatial Foundation Models</h3>
-                </div>
-              </a>
-            </div>
+            <figure class="research-collage">
+              <div class="research-collage-grid">
+                <a class="collage-panel collage-panel--seven" href="https://huggingface.co/amazon/chronos-2" target="_blank" rel="noreferrer">
+                  <span class="collage-visual">
+                    <img src="/assets/images/chronos-2.webp" alt="Chronos-2 architecture for universal time-series forecasting" loading="lazy" decoding="async">
+                  </span>
+                  <span class="collage-label">
+                    <span class="collage-index">01</span>
+                    <span class="collage-title"><strong>Chronos-2</strong><small>From Univariate to Universal Forecasting</small></span>
+                    <span class="collage-venue">2025 <span aria-hidden="true">&nearr;</span></span>
+                  </span>
+                </a>
+                <a class="collage-panel collage-panel--five" href="https://huggingface.co/autogluon/mitra-regressor" target="_blank" rel="noreferrer">
+                  <span class="collage-visual">
+                    <img src="/assets/images/mitra.webp" alt="Mitra mixed synthetic priors and tabular foundation model architecture" loading="lazy" decoding="async">
+                  </span>
+                  <span class="collage-label">
+                    <span class="collage-index">02</span>
+                    <span class="collage-title"><strong>Mitra</strong><small>Mixed Synthetic Priors for Enhancing Tabular Foundation Models</small></span>
+                    <span class="collage-venue">NeurIPS 2025 <span aria-hidden="true">&nearr;</span></span>
+                  </span>
+                </a>
+                <a class="collage-panel collage-panel--full" href="https://arxiv.org/abs/2404.01260" target="_blank" rel="noreferrer">
+                  <span class="collage-visual">
+                    <img src="/assets/images/msgfm.webp" alt="msGFM cross-sensor pretraining and downstream transfer architecture" loading="lazy" decoding="async">
+                  </span>
+                  <span class="collage-label">
+                    <span class="collage-index">03</span>
+                    <span class="collage-title"><strong>msGFM</strong><small>Bridging Remote Sensors with Multisensor Geospatial Foundation Models</small></span>
+                    <span class="collage-venue">CVPR 2024 <span aria-hidden="true">&nearr;</span></span>
+                  </span>
+                </a>
+              </div>
+              <figcaption>Universal forecasting / synthetic priors / multisensor pretraining</figcaption>
+            </figure>
           </section>
 
           <section class="research-program research-program--systems reveal" aria-labelledby="systems-title">
             <header class="research-program-header">
-              <p class="research-program-number">04 / Systems</p>
+              <p class="research-program-number">05 / Systems</p>
               <div>
                 <h2 id="systems-title">Systems</h2>
                 <p>
@@ -196,26 +243,31 @@
                 </p>
               </div>
             </header>
-            <div class="paper-collage">
-              <a class="paper-tile paper-tile--six" href="https://arxiv.org/abs/2512.12476" target="_blank" rel="noreferrer">
-                <div class="paper-figure">
-                  <img src="/assets/images/hetrl.webp" alt="HetRL reinforcement learning framework for heterogeneous compute environments" loading="lazy" decoding="async">
-                </div>
-                <div class="paper-tile-copy">
-                  <div class="paper-tile-meta"><span>MLSys 2026</span><span aria-hidden="true">&nearr;</span></div>
-                  <h3>HetRL: Efficient Reinforcement Learning for LLMs in Heterogeneous Environments</h3>
-                </div>
-              </a>
-              <a class="paper-tile paper-tile--six" href="https://arxiv.org/abs/2403.05676" target="_blank" rel="noreferrer">
-                <div class="paper-figure">
-                  <img src="/assets/images/piperag.webp" alt="PipeRAG pipeline parallel retrieval and generation system" loading="lazy" decoding="async">
-                </div>
-                <div class="paper-tile-copy">
-                  <div class="paper-tile-meta"><span>KDD 2025</span><span aria-hidden="true">&nearr;</span></div>
-                  <h3>PipeRAG: Fast Retrieval-Augmented Generation via Algorithm-System Co-design</h3>
-                </div>
-              </a>
-            </div>
+            <figure class="research-collage">
+              <div class="research-collage-grid">
+                <a class="collage-panel collage-panel--six" href="https://arxiv.org/abs/2512.12476" target="_blank" rel="noreferrer">
+                  <span class="collage-visual">
+                    <img src="/assets/images/hetrl.webp" alt="HetRL reinforcement learning framework for heterogeneous compute environments" loading="lazy" decoding="async">
+                  </span>
+                  <span class="collage-label">
+                    <span class="collage-index">01</span>
+                    <span class="collage-title"><strong>HetRL</strong><small>Efficient Reinforcement Learning for LLMs in Heterogeneous Environments</small></span>
+                    <span class="collage-venue">MLSys 2026 <span aria-hidden="true">&nearr;</span></span>
+                  </span>
+                </a>
+                <a class="collage-panel collage-panel--six" href="https://arxiv.org/abs/2403.05676" target="_blank" rel="noreferrer">
+                  <span class="collage-visual">
+                    <img src="/assets/images/piperag.webp" alt="PipeRAG pipeline parallel retrieval and generation system" loading="lazy" decoding="async">
+                  </span>
+                  <span class="collage-label">
+                    <span class="collage-index">02</span>
+                    <span class="collage-title"><strong>PipeRAG</strong><small>Fast Retrieval-Augmented Generation via Algorithm-System Co-design</small></span>
+                    <span class="collage-venue">KDD 2025 <span aria-hidden="true">&nearr;</span></span>
+                  </span>
+                </a>
+              </div>
+              <figcaption>Heterogeneous training / pipelined retrieval and generation</figcaption>
+            </figure>
           </section>
         </div>
       </section>
