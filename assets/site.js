@@ -123,6 +123,7 @@
       const context = series === location ? date : `${location} / ${date}`;
       const metadata = [
         button.dataset.camera,
+        button.dataset.lens,
         button.dataset.focalLength,
         button.dataset.settings,
       ].filter(Boolean);
