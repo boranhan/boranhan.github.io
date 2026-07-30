@@ -124,12 +124,15 @@
       return { series, context };
     }
 
-    photoButtons.forEach((button) => {
+    photoButtons.forEach((button, index) => {
       const { series, context } = getPhotoDetails(button);
+      const number = String(index + 1).padStart(2, "0");
       const label = document.createElement("span");
       const labelTitle = document.createElement("strong");
       const labelContext = document.createElement("small");
 
+      button.setAttribute("aria-label", `Enlarge photograph ${index + 1}`);
+      button.querySelector(".photo-number").textContent = number;
       label.className = "photo-label";
       label.setAttribute("aria-hidden", "true");
       labelTitle.textContent = series;
@@ -158,22 +161,40 @@
       renderPhoto();
     }
 
+    function openLightbox() {
+      if (typeof lightbox.showModal === "function") {
+        if (!lightbox.open) lightbox.showModal();
+      } else {
+        lightbox.setAttribute("open", "");
+      }
+      body.classList.add("lightbox-open");
+    }
+
+    function closeLightbox() {
+      if (typeof lightbox.close === "function") {
+        lightbox.close();
+      } else {
+        lightbox.removeAttribute("open");
+        body.classList.remove("lightbox-open");
+        lightboxImage.removeAttribute("src");
+      }
+    }
+
     photoButtons.forEach((button) => {
       button.addEventListener("click", () => {
         activePhotos = Array.from(button.closest(".photo-grid").querySelectorAll(".photo-open"));
         activeIndex = activePhotos.indexOf(button);
         renderPhoto();
-        lightbox.showModal();
-        body.classList.add("lightbox-open");
+        openLightbox();
       });
     });
 
-    closeButton.addEventListener("click", () => lightbox.close());
+    closeButton.addEventListener("click", closeLightbox);
     previousButton.addEventListener("click", () => movePhoto(-1));
     nextButton.addEventListener("click", () => movePhoto(1));
 
     lightbox.addEventListener("click", (event) => {
-      if (event.target === lightbox) lightbox.close();
+      if (event.target === lightbox) closeLightbox();
     });
 
     lightbox.addEventListener("keydown", (event) => {
