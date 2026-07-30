@@ -219,6 +219,89 @@
   let frame;
 
   const colors = ["#65d9d1", "#b8e36d", "#ff7868"];
+  const equations = [
+    {
+      label: "ATTENTION",
+      lines: ["Attn(Q,K,V) = softmax(QK^T / sqrt(d_k)) V"],
+      x: 0.6,
+      y: 0.16,
+      phase: 0.2,
+    },
+    {
+      label: "CROSS-ENTROPY",
+      lines: ["L_CE = -sum_i y_i log p_theta(i|x)"],
+      x: 0.68,
+      y: 0.32,
+      phase: 1.4,
+    },
+    {
+      label: "PPO",
+      lines: [
+        "J_PPO = E_t[min(r_t A_t,",
+        "clip(r_t, 1-eps, 1+eps) A_t)]",
+      ],
+      x: 0.59,
+      y: 0.49,
+      phase: 2.7,
+    },
+    {
+      label: "GRPO",
+      lines: [
+        "A_i = (r_i - mean(r)) / std(r)",
+        "J_GRPO = E[1/G sum_i rho_i A_i]",
+      ],
+      x: 0.67,
+      y: 0.68,
+      phase: 4.1,
+    },
+    {
+      label: "DIFFUSION",
+      lines: ["L_diff = E[||eps - eps_theta(x_t,t)||_2^2]"],
+      x: 0.58,
+      y: 0.84,
+      phase: 5.2,
+    },
+  ];
+
+  function drawEquations(time) {
+    const compact = width < 700;
+    const medium = width >= 700 && width < 1050;
+    const seconds = time / 1000;
+    const baseOpacity = compact ? 0.11 : medium ? 0.17 : 0.22;
+    const labelSize = compact ? 8 : 10;
+    const equationSize = compact ? 10 : medium ? 11 : 13;
+
+    context.save();
+    context.textBaseline = "top";
+
+    equations.forEach((equation, index) => {
+      if (compact && (index === 1 || index === 3)) return;
+
+      const compactX = [0.06, 0.2, 0.08, 0.24, 0.05][index];
+      const compactY = [0.09, 0.27, 0.48, 0.68, 0.86][index];
+      const anchorX = (compact ? compactX : equation.x) * width;
+      const anchorY = (compact ? compactY : equation.y) * height;
+      const driftX = reducedMotion ? 0 : Math.sin(seconds * 0.13 + equation.phase) * 8;
+      const driftY = reducedMotion ? 0 : Math.cos(seconds * 0.16 + equation.phase) * 4;
+      const pulse = reducedMotion ? 1 : 0.82 + Math.sin(seconds * 0.22 + equation.phase) * 0.18;
+      const x = anchorX + driftX;
+      const y = anchorY + driftY;
+
+      context.globalAlpha = baseOpacity * pulse;
+      context.fillStyle = index % 2 === 0 ? "#65d9d1" : "#b8e36d";
+      context.font = `700 ${labelSize}px "DejaVu Sans Mono", "Courier New", monospace`;
+      context.fillText(equation.label, x, y);
+
+      context.globalAlpha = baseOpacity * pulse * 0.78;
+      context.fillStyle = "#f4f5f2";
+      context.font = `400 ${equationSize}px "DejaVu Sans Mono", "Courier New", monospace`;
+      equation.lines.forEach((line, lineIndex) => {
+        context.fillText(line, x, y + labelSize + 7 + lineIndex * (equationSize + 5));
+      });
+    });
+
+    context.restore();
+  }
 
   function resize() {
     const ratio = Math.min(window.devicePixelRatio || 1, 2);
@@ -242,8 +325,9 @@
     draw();
   }
 
-  function draw() {
+  function draw(time = 0) {
     context.clearRect(0, 0, width, height);
+    drawEquations(time);
 
     points.forEach((point, index) => {
       if (!reducedMotion) {
