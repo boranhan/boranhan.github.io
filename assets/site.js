@@ -118,12 +118,10 @@
     function renderPhoto() {
       const button = activePhotos[activeIndex];
       const sourceImage = button.querySelector("img");
-      const collection = button.closest(".photo-collection");
-      const collectionTitle = collection.querySelector("h2").textContent;
 
       lightboxImage.src = sourceImage.currentSrc || sourceImage.src;
       lightboxImage.alt = sourceImage.alt;
-      lightboxTitle.textContent = collectionTitle;
+      lightboxTitle.textContent = `${button.dataset.location} / ${button.dataset.date}`;
       lightboxCounter.textContent = `${String(activeIndex + 1).padStart(2, "0")} / ${String(activePhotos.length).padStart(2, "0")}`;
 
       const nextImage = activePhotos[(activeIndex + 1) % activePhotos.length].querySelector("img");

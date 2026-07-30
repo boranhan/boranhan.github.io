@@ -6,7 +6,7 @@
     <meta name="description" content="Selected publications by Boran Han across agentic learning, foundation models, multimodal reasoning, AI for science, and computational imaging.">
     <meta name="theme-color" content="#090b0d">
     <link rel="canonical" href="https://boranhan.github.io/publications/">
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.ico?v=2">
     <link rel="stylesheet" href="/assets/styles.css">
     <title>Publications | Boran Han</title>
   </head>
@@ -51,16 +51,37 @@
           <div class="filter-bar" aria-label="Filter selected publications">
             <button class="filter-button" type="button" data-filter="all" aria-pressed="true">All</button>
             <button class="filter-button" type="button" data-filter="agents" aria-pressed="false">Agents + LLMs</button>
+            <button class="filter-button" type="button" data-filter="rl" aria-pressed="false">Reinforcement learning</button>
             <button class="filter-button" type="button" data-filter="reasoning" aria-pressed="false">Reasoning</button>
             <button class="filter-button" type="button" data-filter="foundation" aria-pressed="false">Foundation models</button>
             <button class="filter-button" type="button" data-filter="science" aria-pressed="false">AI for science</button>
             <button class="filter-button" type="button" data-filter="vision" aria-pressed="false">Vision + multimodal</button>
             <button class="filter-button" type="button" data-filter="biology" aria-pressed="false">Imaging + biology</button>
           </div>
-          <p class="filter-result" aria-live="polite">23 selected publications</p>
+          <p class="filter-result" aria-live="polite">25 selected publications</p>
 
           <div class="publication-list">
-            <article class="publication" data-categories="agents foundation">
+            <article class="publication" data-categories="rl agents">
+              <div class="publication-year">2026</div>
+              <div>
+                <a href="https://arxiv.org/abs/2606.18388" target="_blank" rel="noreferrer">
+                  <h2>LLMZero: Discovering Adaptive Training Strategies for RL Post-Training via LLM Agents</h2>
+                </a>
+                <p class="publication-authors">Haoyang Fang, Wei Zhu, Boran Han, Alex Zhang, Zhenyu Pan, et al.</p>
+              </div>
+              <div class="publication-venue">Preprint</div>
+            </article>
+            <article class="publication" data-categories="reasoning">
+              <div class="publication-year">2026</div>
+              <div>
+                <a href="https://arxiv.org/abs/2606.32029" target="_blank" rel="noreferrer">
+                  <h2>When LLMs Read Tables Carelessly: Measuring and Reducing Data Referencing Errors</h2>
+                </a>
+                <p class="publication-authors">Yuqing Yang, Qi Zhu, Zhen Han, Boran Han, Zhengyuan Shen, et al.</p>
+              </div>
+              <div class="publication-venue">Preprint</div>
+            </article>
+            <article class="publication" data-categories="rl agents foundation">
               <div class="publication-year">2026</div>
               <div>
                 <h2>ReSkill: Reconciling Skill Creation with Policy Optimization in Agentic RL</h2>
@@ -78,7 +99,7 @@
               </div>
               <div class="publication-venue">AISTATS</div>
             </article>
-            <article class="publication" data-categories="agents foundation">
+            <article class="publication" data-categories="rl agents foundation">
               <div class="publication-year">2026</div>
               <div>
                 <h2>HetRL: Efficient Reinforcement Learning for LLMs in Heterogeneous Environments</h2>
