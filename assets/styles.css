@@ -1218,24 +1218,7 @@ button {
 }
 
 .footer-top {
-  padding-bottom: 60px;
-  display: grid;
-  grid-template-columns: 1.4fr 0.6fr;
-  gap: 50px;
-}
-
-.footer-title {
-  max-width: 700px;
-  margin: 0;
-  font-family: var(--serif);
-  font-size: 68px;
-  font-weight: 400;
-  line-height: 1.08;
-}
-
-.footer-title em {
-  color: var(--cyan);
-  font-weight: 400;
+  padding-bottom: 40px;
 }
 
 .footer-links {
@@ -1324,10 +1307,6 @@ button {
 
   .manifesto {
     font-size: 42px;
-  }
-
-  .footer-title {
-    font-size: 52px;
   }
 
   .research-card:nth-child(n) {
@@ -1633,10 +1612,6 @@ button {
 
   .lightbox-next {
     right: calc(50% - 58px);
-  }
-
-  .footer-top {
-    grid-template-columns: 1fr;
   }
 
   .footer-bottom {
