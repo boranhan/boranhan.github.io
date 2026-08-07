@@ -41,6 +41,26 @@ body.nav-open {
   overflow: hidden;
 }
 
+body.photography-page {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 8% 12%, rgba(244, 245, 242, 0.85) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 27% 68%, rgba(101, 217, 209, 0.55) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 46% 24%, rgba(244, 245, 242, 0.5) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 63% 82%, rgba(244, 245, 242, 0.6) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 82% 38%, rgba(184, 227, 109, 0.5) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 93% 91%, rgba(244, 245, 242, 0.4) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 15% 90%, rgba(244, 245, 242, 0.35) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 35% 5%, rgba(101, 217, 209, 0.4) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 58% 55%, rgba(244, 245, 242, 0.65) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 72% 15%, rgba(244, 245, 242, 0.45) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 88% 65%, rgba(184, 227, 109, 0.35) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 4% 45%, rgba(244, 245, 242, 0.55) 0 1px, transparent 1.3px);
+  background-repeat: repeat;
+  background-size: 340px 340px;
+  background-attachment: fixed;
+}
+
 body.lightbox-open {
   overflow: hidden;
 }
@@ -482,7 +502,7 @@ button {
   --earth-size: clamp(47px, 7vw, 79px);
   --moon-size: clamp(24px, 3.5vw, 39px);
   position: relative;
-  height: clamp(250px, 27vw, 330px);
+  height: clamp(150px, 16vw, 190px);
   overflow: hidden;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -1666,7 +1686,7 @@ button {
   .flight-visual {
     --earth-size: 44px;
     --moon-size: 22.5px;
-    height: 230px;
+    height: 140px;
   }
 
   .flight-route {
