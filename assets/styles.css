@@ -703,7 +703,7 @@ button {
   top: 50%;
   left: 92%;
   width: 76px;
-  height: 38px;
+  height: 46px;
   display: block;
   transform: translate(-50%, -50%);
   animation: flight-rocket-idle 3.2s ease-in-out infinite;
