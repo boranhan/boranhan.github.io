@@ -22,7 +22,7 @@
     <meta name="twitter:image:alt" content="Boran Han, AI Research Scientist">
     <link rel="canonical" href="https://boranhan.github.io/photography/">
     <link rel="icon" href="/favicon.ico?v=2">
-    <link rel="stylesheet" href="/assets/styles.css?v=11">
+    <link rel="stylesheet" href="/assets/styles.css?v=12">
     <title>Photography | Boran Han</title>
   </head>
   <body>
@@ -65,9 +65,26 @@
             aria-label="Earth-to-Moon distance diagram showing 352,427 kilometers flown, with a rocket 92 percent of the way from Earth to the Moon"
           >
             <div class="flight-earth" aria-hidden="true">
-              <span class="earth-land earth-land-one"></span>
-              <span class="earth-land earth-land-two"></span>
-              <span class="earth-land earth-land-three"></span>
+              <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <defs>
+                  <radialGradient id="earth-ocean" cx="32%" cy="28%" r="85%">
+                    <stop offset="0%" stop-color="#8fe9ea" />
+                    <stop offset="32%" stop-color="#2f9fc9" />
+                    <stop offset="66%" stop-color="#14688f" />
+                    <stop offset="100%" stop-color="#063a5c" />
+                  </radialGradient>
+                  <radialGradient id="earth-shade" cx="74%" cy="80%" r="75%">
+                    <stop offset="0%" stop-color="rgba(3,13,22,0)" />
+                    <stop offset="100%" stop-color="rgba(3,13,22,0.72)" />
+                  </radialGradient>
+                </defs>
+                <rect width="100" height="100" fill="url(#earth-ocean)" />
+                <path fill="#7fbf74" opacity="0.95" d="M6,34 C11,21 28,13 41,18 C52,22 51,34 44,39 C51,43 49,55 37,57 C26,59 16,52 12,43 C6,41 2,39 6,34 Z" />
+                <path fill="#7fbf74" opacity="0.95" d="M59,9 C71,5 87,13 89,25 C91,35 81,42 70,38 C64,45 53,43 51,35 C49,24 50,15 59,9 Z" />
+                <path fill="#6fae66" opacity="0.9" d="M61,58 C73,53 87,60 89,72 C91,83 78,91 65,87 C57,91 47,84 49,74 C51,64 55,62 61,58 Z" />
+                <path fill="#6fae66" opacity="0.85" d="M18,66 C27,62 36,68 34,77 C32,85 21,87 15,81 C8,74 12,68 18,66 Z" />
+                <rect width="100" height="100" fill="url(#earth-shade)" />
+              </svg>
             </div>
             <div class="flight-route" aria-hidden="true">
               <span class="flight-route-progress"></span>
@@ -88,9 +105,28 @@
               </span>
             </div>
             <div class="flight-moon" aria-hidden="true">
-              <span class="moon-crater moon-crater-one"></span>
-              <span class="moon-crater moon-crater-two"></span>
-              <span class="moon-crater moon-crater-three"></span>
+              <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <defs>
+                  <radialGradient id="moon-surface" cx="34%" cy="28%" r="85%">
+                    <stop offset="0%" stop-color="#fbfaf4" />
+                    <stop offset="45%" stop-color="#d8d5cb" />
+                    <stop offset="100%" stop-color="#94958f" />
+                  </radialGradient>
+                  <radialGradient id="moon-shade" cx="72%" cy="78%" r="75%">
+                    <stop offset="0%" stop-color="rgba(9,11,13,0)" />
+                    <stop offset="100%" stop-color="rgba(9,11,13,0.6)" />
+                  </radialGradient>
+                </defs>
+                <rect width="100" height="100" fill="url(#moon-surface)" />
+                <circle cx="30" cy="27" r="14" fill="rgba(120,120,114,0.38)" />
+                <circle cx="27" cy="24" r="9" fill="rgba(90,90,86,0.3)" />
+                <circle cx="68" cy="62" r="10" fill="rgba(120,120,114,0.32)" />
+                <circle cx="66" cy="59" r="5.5" fill="rgba(90,90,86,0.28)" />
+                <circle cx="24" cy="70" r="6" fill="rgba(120,120,114,0.3)" />
+                <circle cx="58" cy="20" r="4.5" fill="rgba(120,120,114,0.28)" />
+                <circle cx="80" cy="35" r="3.5" fill="rgba(120,120,114,0.26)" />
+                <rect width="100" height="100" fill="url(#moon-shade)" />
+              </svg>
             </div>
           </div>
           <div class="flight-scale">

@@ -523,81 +523,22 @@ button {
   width: var(--earth-size);
   height: var(--earth-size);
   overflow: hidden;
-  background:
-    radial-gradient(circle at 34% 30%, #75d9e7 0 8%, #2788b8 34%, #0e4f78 72%, #082b46 100%);
-  box-shadow:
-    0 0 48px rgba(101, 217, 209, 0.18),
-    inset -20px -12px 28px rgba(3, 13, 22, 0.58);
-}
-
-.earth-land {
-  position: absolute;
-  display: block;
-  background: #8cbf68;
-  filter: drop-shadow(0 1px 1px rgba(3, 13, 22, 0.35));
-}
-
-.earth-land-one {
-  top: 17%;
-  left: 18%;
-  width: 42%;
-  height: 31%;
-  clip-path: polygon(4% 28%, 28% 4%, 61% 10%, 94% 38%, 72% 61%, 54% 100%, 30% 70%, 8% 75%);
-}
-
-.earth-land-two {
-  right: 10%;
-  bottom: 18%;
-  width: 40%;
-  height: 31%;
-  clip-path: polygon(4% 20%, 45% 0, 91% 26%, 76% 62%, 48% 100%, 25% 78%);
-}
-
-.earth-land-three {
-  bottom: 11%;
-  left: 20%;
-  width: 21%;
-  height: 19%;
-  clip-path: polygon(12% 0, 100% 20%, 72% 100%, 0 62%);
+  box-shadow: 0 0 48px rgba(101, 217, 209, 0.18);
 }
 
 .flight-moon {
   right: clamp(18px, 4vw, 54px);
   width: var(--moon-size);
   height: var(--moon-size);
-  background:
-    radial-gradient(circle at 35% 28%, #faf9f2 0 6%, #cbc9c0 48%, #858783 100%);
-  box-shadow:
-    0 0 30px rgba(244, 245, 242, 0.13),
-    inset -12px -8px 20px rgba(9, 11, 13, 0.42);
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(244, 245, 242, 0.13);
 }
 
-.moon-crater {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(83, 87, 85, 0.34);
-  box-shadow: inset 2px 2px 3px rgba(9, 11, 13, 0.32);
-}
-
-.moon-crater-one {
-  top: 20%;
-  left: 23%;
-  width: 24%;
-  height: 24%;
-}
-
-.moon-crater-two {
-  right: 18%;
-  bottom: 21%;
-  width: 18%;
-  height: 18%;
-}
-
-.moon-crater-three {
-  bottom: 17%;
-  left: 20%;
-  width: 11%;
-  height: 11%;
+.flight-earth svg,
+.flight-moon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .flight-route {
