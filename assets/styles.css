@@ -475,21 +475,7 @@ button {
 }
 
 .flight-figure {
-  margin: 56px 0 0;
-  padding: 48px 0 0;
-  border-top: 1px solid var(--line);
-}
-
-.photography-flight {
-  width: min(100% - (2 * var(--gutter)), var(--max));
-  margin: 0 auto;
-  padding-top: 72px;
-}
-
-.photography-flight .flight-figure {
-  margin: 0;
-  padding: 0;
-  border-top: 0;
+  margin: 40px 0 0;
 }
 
 .flight-visual {
@@ -1234,8 +1220,8 @@ button {
 }
 
 .photo-collection {
-  padding-top: 72px;
-  scroll-margin-top: 72px;
+  padding-top: 16px;
+  scroll-margin-top: 16px;
 }
 
 .photo-collection + .photo-collection {
@@ -1674,8 +1660,7 @@ button {
   }
 
   .flight-figure {
-    margin-top: 38px;
-    padding-top: 34px;
+    margin-top: 28px;
   }
 
   .flight-visual {
@@ -1863,7 +1848,7 @@ button {
   }
 
   .photo-collection {
-    padding-top: 48px;
+    padding-top: 16px;
   }
 
   .photo-collection + .photo-collection {
