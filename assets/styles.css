@@ -492,29 +492,6 @@ button {
   border-top: 0;
 }
 
-.flight-caption {
-  margin-bottom: 30px;
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: end;
-}
-
-.flight-caption h2,
-.flight-caption h3 {
-  margin: 0;
-  font-family: var(--serif);
-  font-size: 38px;
-  font-weight: 400;
-  line-height: 1.1;
-}
-
-.flight-caption h2 strong,
-.flight-caption h3 strong {
-  color: var(--cyan);
-  font-size: 64px;
-  font-weight: 400;
-}
-
 .flight-visual {
   --earth-size: clamp(47px, 7vw, 79px);
   --moon-size: clamp(24px, 3.5vw, 39px);
@@ -727,23 +704,42 @@ button {
   animation: flight-flame 620ms ease-in-out infinite alternate;
 }
 
+.flight-distance-label,
 .flight-progress-label {
   position: absolute;
-  right: 8%;
   bottom: 18px;
   display: grid;
-  transform: translateX(50%);
   text-align: center;
 }
 
+.flight-distance-label {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.flight-progress-label {
+  right: 8%;
+  transform: translateX(50%);
+}
+
+.flight-distance-label strong,
 .flight-progress-label strong {
-  color: var(--coral);
   font-family: var(--serif);
-  font-size: 40px;
   font-weight: 400;
   line-height: 1;
 }
 
+.flight-distance-label strong {
+  color: var(--cyan);
+  font-size: 32px;
+}
+
+.flight-progress-label strong {
+  color: var(--coral);
+  font-size: 40px;
+}
+
+.flight-distance-label small,
 .flight-progress-label small {
   margin-top: 5px;
   color: var(--muted);
@@ -1639,10 +1635,6 @@ button {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .flight-caption {
-    grid-template-columns: 1fr;
-  }
-
   .research-program-header {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -1745,17 +1737,6 @@ button {
     padding-top: 34px;
   }
 
-  .flight-caption h2,
-  .flight-caption h3 {
-    font-size: 26px;
-  }
-
-  .flight-caption h2 strong,
-  .flight-caption h3 strong {
-    display: block;
-    font-size: 49px;
-  }
-
   .flight-visual {
     --earth-size: 44px;
     --moon-size: 22.5px;
@@ -1772,9 +1753,21 @@ button {
     transform: translate(-50%, -50%) scale(0.88);
   }
 
+  .flight-distance-label,
   .flight-progress-label {
     bottom: 16px;
+  }
+
+  .flight-distance-label {
+    transform: translateX(-50%);
+  }
+
+  .flight-progress-label {
     transform: translateX(25%);
+  }
+
+  .flight-distance-label strong {
+    font-size: 25px;
   }
 
   .flight-progress-label strong {
