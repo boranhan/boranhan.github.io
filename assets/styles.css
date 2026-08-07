@@ -474,6 +474,330 @@ button {
   font-size: 13px;
 }
 
+.flight-figure {
+  margin: 56px 0 0;
+  padding: 48px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.flight-caption {
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
+  gap: 48px;
+  align-items: end;
+}
+
+.flight-kicker {
+  margin: 0 0 8px;
+  color: var(--coral);
+  font-size: 11px;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.flight-caption h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.flight-caption h3 strong {
+  color: var(--cyan);
+  font-size: 64px;
+  font-weight: 400;
+}
+
+.flight-caption > p {
+  max-width: 390px;
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.flight-visual {
+  --earth-size: clamp(94px, 14vw, 158px);
+  --moon-size: clamp(48px, 7vw, 78px);
+  position: relative;
+  height: clamp(250px, 27vw, 330px);
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #06080a;
+  background-image:
+    radial-gradient(circle at 13% 18%, rgba(244, 245, 242, 0.72) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 36% 72%, rgba(101, 217, 209, 0.48) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 58% 24%, rgba(244, 245, 242, 0.45) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 73% 80%, rgba(244, 245, 242, 0.52) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 87% 31%, rgba(184, 227, 109, 0.44) 0 1px, transparent 1.5px);
+}
+
+.flight-earth,
+.flight-moon {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.flight-earth {
+  left: clamp(16px, 3.2vw, 42px);
+  width: var(--earth-size);
+  height: var(--earth-size);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 34% 30%, #75d9e7 0 8%, #2788b8 34%, #0e4f78 72%, #082b46 100%);
+  box-shadow:
+    0 0 48px rgba(101, 217, 209, 0.18),
+    inset -20px -12px 28px rgba(3, 13, 22, 0.58);
+}
+
+.earth-land {
+  position: absolute;
+  display: block;
+  background: #8cbf68;
+  filter: drop-shadow(0 1px 1px rgba(3, 13, 22, 0.35));
+}
+
+.earth-land-one {
+  top: 17%;
+  left: 18%;
+  width: 42%;
+  height: 31%;
+  clip-path: polygon(4% 28%, 28% 4%, 61% 10%, 94% 38%, 72% 61%, 54% 100%, 30% 70%, 8% 75%);
+}
+
+.earth-land-two {
+  right: 10%;
+  bottom: 18%;
+  width: 40%;
+  height: 31%;
+  clip-path: polygon(4% 20%, 45% 0, 91% 26%, 76% 62%, 48% 100%, 25% 78%);
+}
+
+.earth-land-three {
+  bottom: 11%;
+  left: 20%;
+  width: 21%;
+  height: 19%;
+  clip-path: polygon(12% 0, 100% 20%, 72% 100%, 0 62%);
+}
+
+.flight-moon {
+  right: clamp(18px, 4vw, 54px);
+  width: var(--moon-size);
+  height: var(--moon-size);
+  background:
+    radial-gradient(circle at 35% 28%, #faf9f2 0 6%, #cbc9c0 48%, #858783 100%);
+  box-shadow:
+    0 0 30px rgba(244, 245, 242, 0.13),
+    inset -12px -8px 20px rgba(9, 11, 13, 0.42);
+}
+
+.moon-crater {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(83, 87, 85, 0.34);
+  box-shadow: inset 2px 2px 3px rgba(9, 11, 13, 0.32);
+}
+
+.moon-crater-one {
+  top: 20%;
+  left: 23%;
+  width: 24%;
+  height: 24%;
+}
+
+.moon-crater-two {
+  right: 18%;
+  bottom: 21%;
+  width: 18%;
+  height: 18%;
+}
+
+.moon-crater-three {
+  bottom: 17%;
+  left: 20%;
+  width: 11%;
+  height: 11%;
+}
+
+.flight-route {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  right: clamp(52px, 8.5vw, 100px);
+  left: clamp(87px, 15vw, 168px);
+  height: 2px;
+  transform: translateY(-50%);
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(244, 245, 242, 0.26) 0 5px,
+    transparent 5px 12px
+  );
+}
+
+.flight-route-progress {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 92%;
+  background: var(--cyan);
+  box-shadow: 0 0 14px rgba(101, 217, 209, 0.55);
+}
+
+.flight-route-progress::after {
+  position: absolute;
+  top: 50%;
+  right: -4px;
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--bg);
+  border-radius: 50%;
+  content: "";
+  transform: translateY(-50%);
+  background: var(--cyan);
+}
+
+.flight-rocket {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  left: 92%;
+  width: 44px;
+  height: 22px;
+  display: block;
+  transform: translate(-50%, -50%);
+  animation: flight-rocket-idle 3.2s ease-in-out infinite;
+}
+
+.rocket-body {
+  position: absolute;
+  top: 5px;
+  left: 11px;
+  width: 28px;
+  height: 12px;
+  display: block;
+  border: 1px solid rgba(9, 11, 13, 0.55);
+  border-radius: 7px 70% 70% 7px;
+  background: var(--ink);
+}
+
+.rocket-window {
+  position: absolute;
+  z-index: 2;
+  top: 8px;
+  right: 10px;
+  width: 6px;
+  height: 6px;
+  display: block;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: inset 1px 1px 2px rgba(9, 11, 13, 0.45);
+}
+
+.rocket-fin {
+  position: absolute;
+  left: 12px;
+  width: 9px;
+  height: 7px;
+  display: block;
+  background: var(--coral);
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
+}
+
+.rocket-fin-top {
+  top: 1px;
+  transform: scaleY(-1);
+}
+
+.rocket-fin-bottom {
+  bottom: 1px;
+}
+
+.rocket-flame {
+  position: absolute;
+  top: 7px;
+  left: 0;
+  width: 13px;
+  height: 8px;
+  display: block;
+  clip-path: polygon(0 50%, 100% 0, 100% 100%);
+  background: var(--coral);
+  animation: flight-flame 620ms ease-in-out infinite alternate;
+}
+
+.flight-progress-label {
+  position: absolute;
+  right: 8%;
+  bottom: 18px;
+  display: grid;
+  transform: translateX(50%);
+  text-align: center;
+}
+
+.flight-progress-label strong {
+  color: var(--coral);
+  font-family: var(--serif);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.flight-progress-label small {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.flight-scale {
+  padding-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  color: var(--faint);
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.flight-scale span:nth-child(2) {
+  text-align: center;
+}
+
+.flight-scale span:last-child {
+  text-align: right;
+}
+
+.flight-scale strong {
+  margin-right: 6px;
+  color: var(--muted);
+  font-weight: 750;
+}
+
+@keyframes flight-rocket-idle {
+  0%,
+  100% {
+    margin-top: -1px;
+  }
+  50% {
+    margin-top: 3px;
+  }
+}
+
+@keyframes flight-flame {
+  from {
+    transform: scaleX(0.72);
+    transform-origin: right;
+  }
+  to {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+}
+
 .latest-list {
   border-top: 1px solid var(--line);
 }
@@ -1317,6 +1641,15 @@ button {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .flight-caption {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .flight-caption > p {
+    max-width: 540px;
+  }
+
   .research-program-header {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -1412,6 +1745,64 @@ button {
 
   .stat strong {
     font-size: 38px;
+  }
+
+  .flight-figure {
+    margin-top: 38px;
+    padding-top: 34px;
+  }
+
+  .flight-caption h3 {
+    font-size: 26px;
+  }
+
+  .flight-caption h3 strong {
+    display: block;
+    font-size: 49px;
+  }
+
+  .flight-caption > p {
+    font-size: 14px;
+  }
+
+  .flight-visual {
+    --earth-size: 88px;
+    --moon-size: 45px;
+    height: 230px;
+  }
+
+  .flight-route {
+    right: 78px;
+    left: 78px;
+  }
+
+  .flight-rocket {
+    width: 38px;
+    transform: translate(-50%, -50%) scale(0.88);
+  }
+
+  .flight-progress-label {
+    bottom: 16px;
+    transform: translateX(25%);
+  }
+
+  .flight-progress-label strong {
+    font-size: 32px;
+  }
+
+  .flight-scale {
+    grid-template-columns: 1fr auto;
+    row-gap: 5px;
+  }
+
+  .flight-scale span:nth-child(2) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    text-align: left;
+  }
+
+  .flight-scale span:last-child {
+    text-align: right;
   }
 
   .latest-item {
