@@ -480,22 +480,26 @@ button {
   border-top: 1px solid var(--line);
 }
 
+.photography-flight {
+  width: min(100% - (2 * var(--gutter)), var(--max));
+  margin: 0 auto;
+  padding-top: 72px;
+}
+
+.photography-flight .flight-figure {
+  margin: 0;
+  padding: 0;
+  border-top: 0;
+}
+
 .flight-caption {
   margin-bottom: 30px;
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
-  gap: 48px;
+  grid-template-columns: 1fr;
   align-items: end;
 }
 
-.flight-kicker {
-  margin: 0 0 8px;
-  color: var(--coral);
-  font-size: 11px;
-  font-weight: 750;
-  text-transform: uppercase;
-}
-
+.flight-caption h2,
 .flight-caption h3 {
   margin: 0;
   font-family: var(--serif);
@@ -504,22 +508,16 @@ button {
   line-height: 1.1;
 }
 
+.flight-caption h2 strong,
 .flight-caption h3 strong {
   color: var(--cyan);
   font-size: 64px;
   font-weight: 400;
 }
 
-.flight-caption > p {
-  max-width: 390px;
-  margin: 0 0 4px;
-  color: var(--muted);
-  font-size: 15px;
-}
-
 .flight-visual {
-  --earth-size: clamp(94px, 14vw, 158px);
-  --moon-size: clamp(48px, 7vw, 78px);
+  --earth-size: clamp(47px, 7vw, 79px);
+  --moon-size: clamp(24px, 3.5vw, 39px);
   position: relative;
   height: clamp(250px, 27vw, 330px);
   overflow: hidden;
@@ -629,8 +627,8 @@ button {
   position: absolute;
   z-index: 3;
   top: 50%;
-  right: clamp(52px, 8.5vw, 100px);
-  left: clamp(87px, 15vw, 168px);
+  right: clamp(36px, 6vw, 78px);
+  left: clamp(52px, 8vw, 108px);
   height: 2px;
   transform: translateY(-50%);
   background: repeating-linear-gradient(
@@ -1643,11 +1641,6 @@ button {
 
   .flight-caption {
     grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .flight-caption > p {
-    max-width: 540px;
   }
 
   .research-program-header {
@@ -1752,28 +1745,26 @@ button {
     padding-top: 34px;
   }
 
+  .flight-caption h2,
   .flight-caption h3 {
     font-size: 26px;
   }
 
+  .flight-caption h2 strong,
   .flight-caption h3 strong {
     display: block;
     font-size: 49px;
   }
 
-  .flight-caption > p {
-    font-size: 14px;
-  }
-
   .flight-visual {
-    --earth-size: 88px;
-    --moon-size: 45px;
+    --earth-size: 44px;
+    --moon-size: 22.5px;
     height: 230px;
   }
 
   .flight-route {
-    right: 78px;
-    left: 78px;
+    right: 48px;
+    left: 52px;
   }
 
   .flight-rocket {
