@@ -709,60 +709,26 @@ button {
   animation: flight-rocket-idle 3.2s ease-in-out infinite;
 }
 
-.rocket-body {
+.rocket-plane {
   position: absolute;
-  top: 5px;
-  left: 11px;
-  width: 28px;
-  height: 12px;
-  display: block;
-  border: 1px solid rgba(9, 11, 13, 0.55);
-  border-radius: 7px 70% 70% 7px;
-  background: var(--ink);
-}
-
-.rocket-window {
-  position: absolute;
-  z-index: 2;
-  top: 8px;
-  right: 10px;
-  width: 6px;
-  height: 6px;
-  display: block;
-  border-radius: 50%;
-  background: var(--cyan);
-  box-shadow: inset 1px 1px 2px rgba(9, 11, 13, 0.45);
-}
-
-.rocket-fin {
-  position: absolute;
-  left: 12px;
-  width: 9px;
-  height: 7px;
-  display: block;
-  background: var(--coral);
-  clip-path: polygon(0 100%, 100% 0, 100% 100%);
-}
-
-.rocket-fin-top {
-  top: 1px;
-  transform: scaleY(-1);
-}
-
-.rocket-fin-bottom {
-  bottom: 1px;
-}
-
-.rocket-flame {
-  position: absolute;
-  top: 7px;
+  top: 0;
   left: 0;
-  width: 13px;
-  height: 8px;
+  width: 100%;
+  height: 100%;
   display: block;
-  clip-path: polygon(0 50%, 100% 0, 100% 100%);
-  background: var(--coral);
-  animation: flight-flame 620ms ease-in-out infinite alternate;
+  transform: scaleX(-1);
+}
+
+.rocket-trail {
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  width: 26px;
+  height: 2px;
+  display: block;
+  background: linear-gradient(90deg, transparent, rgba(244, 245, 242, 0.35));
+  transform: translateY(-50%);
+  animation: flight-trail 620ms ease-in-out infinite alternate;
 }
 
 .flight-distance-label,
@@ -842,7 +808,7 @@ button {
   }
 }
 
-@keyframes flight-flame {
+@keyframes flight-trail {
   from {
     transform: scaleX(0.72);
     transform-origin: right;
