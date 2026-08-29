@@ -444,6 +444,31 @@ button {
   color: var(--bg);
 }
 
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  flex-shrink: 0;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color 180ms ease, color 180ms ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+.theme-toggle .icon-moon { display: none; }
+
+[data-theme="light"] .theme-toggle .icon-sun  { display: none; }
+[data-theme="light"] .theme-toggle .icon-moon { display: inline-flex; }
+
 .hero-index {
   position: absolute;
   right: var(--gutter);
@@ -1624,6 +1649,67 @@ button {
   transform: none;
 }
 
+/* ─── Light theme ──────────────────────────────────────── */
+
+[data-theme="light"] {
+  --bg: #f7f7f2;
+  --bg-raised: #ffffff;
+  --bg-soft: #eeede8;
+  --ink: #0e1210;
+  --muted: #565e59;
+  --faint: #8a928e;
+  --line: #d5d8d5;
+  --cyan: #0a7a72;
+  --coral: #c93528;
+  --lime: #4a7a0a;
+  color-scheme: light;
+}
+
+[data-theme="light"] .site-header {
+  border-bottom-color: rgba(14, 18, 16, 0.1);
+  background: rgba(247, 247, 242, 0.92);
+}
+
+[data-theme="light"] .field-canvas {
+  display: none;
+}
+
+[data-theme="light"] .hero {
+  background: linear-gradient(160deg, #eef2ef 0%, #f4f4ef 60%, #eef0ea 100%);
+}
+
+[data-theme="light"] .hero::after {
+  background: transparent;
+}
+
+[data-theme="light"] .hero h1,
+[data-theme="light"] .hero-summary,
+[data-theme="light"] .hero .eyebrow {
+  text-shadow: none;
+}
+
+[data-theme="light"] .site-footer {
+  background: #e8e8e3;
+}
+
+[data-theme="light"] .filter-bar {
+  background: rgba(247, 247, 242, 0.94);
+}
+
+[data-theme="light"] .page-hero {
+  background: linear-gradient(180deg, rgba(10, 122, 114, 0.05) 0%, transparent 55%);
+}
+
+[data-theme="light"] body.photography-page::before,
+[data-theme="light"] body.photography-page::after {
+  opacity: 0;
+}
+
+[data-theme="light"] .photo-lightbox,
+[data-theme="light"] .photo-lightbox::backdrop {
+  background: #050607;
+}
+
 @media (max-width: 900px) {
   .menu-toggle {
     display: block;
@@ -1656,6 +1742,13 @@ button {
 
   .site-nav a::after {
     display: none;
+  }
+
+  .theme-toggle {
+    margin-top: 20px;
+    width: 44px;
+    height: 44px;
+    border-color: var(--line);
   }
 
   .section-intro,

@@ -19,6 +19,31 @@
     });
   }
 
+  // Theme
+  const themeToggle = document.querySelector('.theme-toggle');
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    const metaColor = document.querySelector('meta[name="theme-color"]');
+    if (metaColor) metaColor.content = theme === 'light' ? '#f7f7f2' : '#090b0d';
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-label',
+        theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme');
+    }
+  }
+
+  applyTheme(localStorage.getItem('theme') || 'dark');
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      applyTheme(
+        (document.documentElement.getAttribute('data-theme') || 'dark') === 'dark'
+          ? 'light' : 'dark'
+      );
+    });
+  }
+
   document.querySelectorAll("[data-year]").forEach((node) => {
     node.textContent = new Date().getFullYear();
   });
@@ -393,6 +418,7 @@
     const bounds = canvas.getBoundingClientRect();
     width = Math.floor(bounds.width);
     height = Math.floor(bounds.height);
+    if (!width || !height) return;
     canvas.width = Math.floor(width * ratio);
     canvas.height = Math.floor(height * ratio);
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
