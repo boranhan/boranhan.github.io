@@ -209,130 +209,167 @@
     });
   }
 
-  // ── Star canvas (all pages, dark mode) ──────────────────────────
-  const starCanvas = document.createElement('canvas');
-  starCanvas.className = 'star-canvas';
-  starCanvas.setAttribute('aria-hidden', 'true');
-  document.body.prepend(starCanvas);
+  // ── Background canvas (stars+meteors / grass+flowers) ───────────
+  const bgCanvas = document.createElement('canvas');
+  bgCanvas.className = 'star-canvas';
+  bgCanvas.setAttribute('aria-hidden', 'true');
+  document.body.prepend(bgCanvas);
 
-  const sc = starCanvas.getContext('2d');
-  let sw = 0, sh = 0, starList = [], meteors = [], starRaf, lastMeteor = -5000;
+  const sc = bgCanvas.getContext('2d');
+  let sw = 0, sh = 0, bgRaf;
+
+  // ── Dark mode: stars & meteors ────────────────────────────────
+  let starList = [], meteors = [], lastMeteor = -3000;
 
   function buildStars() {
     starList = [];
-    for (let i = 0; i < 160; i++) {
-      starList.push({ x: Math.random() * sw, y: Math.random() * sh, r: 0.4 + Math.random() * 0.9,  base: 0.12 + Math.random() * 0.45, ph: Math.random() * Math.PI * 2, sp: 0.3 + Math.random() * 0.9 });
-    }
-    for (let i = 0; i < 35; i++) {
-      starList.push({ x: Math.random() * sw, y: Math.random() * sh, r: 1.0 + Math.random() * 0.8,  base: 0.3  + Math.random() * 0.4,  ph: Math.random() * Math.PI * 2, sp: 0.2 + Math.random() * 0.5 });
-    }
-    for (let i = 0; i < 12; i++) {
-      starList.push({ x: Math.random() * sw, y: Math.random() * sh, r: 1.8 + Math.random() * 1.0,  base: 0.55 + Math.random() * 0.35, ph: Math.random() * Math.PI * 2, sp: 0.15 + Math.random() * 0.3, glow: true });
-    }
+    for (let i = 0; i < 160; i++) starList.push({ x: Math.random()*sw, y: Math.random()*sh, r: 0.4+Math.random()*0.9,  base: 0.12+Math.random()*0.45, ph: Math.random()*Math.PI*2, sp: 0.3+Math.random()*0.9 });
+    for (let i = 0; i < 35;  i++) starList.push({ x: Math.random()*sw, y: Math.random()*sh, r: 1.0+Math.random()*0.8,  base: 0.3 +Math.random()*0.4,  ph: Math.random()*Math.PI*2, sp: 0.2+Math.random()*0.5 });
+    for (let i = 0; i < 12;  i++) starList.push({ x: Math.random()*sw, y: Math.random()*sh, r: 1.8+Math.random()*1.0,  base: 0.55+Math.random()*0.35, ph: Math.random()*Math.PI*2, sp: 0.15+Math.random()*0.3, glow: true });
   }
 
-  function drawStarField(time) {
-    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-    if (!isLight) {
-      const t = time / 1000;
-      sc.fillStyle = '#090b0d';
-      sc.fillRect(0, 0, sw, sh);
-
-      starList.forEach(s => {
-        const tw = reducedMotion ? 1 : 0.62 + 0.38 * Math.sin(t * s.sp + s.ph);
-        const op = s.base * tw;
-        if (s.glow) {
-          const g = sc.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r * 3.5);
-          g.addColorStop(0, `rgba(244,245,242,${op * 0.55})`);
-          g.addColorStop(1, 'rgba(244,245,242,0)');
-          sc.beginPath(); sc.arc(s.x, s.y, s.r * 3.5, 0, Math.PI * 2);
-          sc.fillStyle = g; sc.fill();
-        }
-        sc.beginPath(); sc.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        sc.fillStyle = `rgba(244,245,242,${op})`; sc.fill();
-      });
-
-      if (!reducedMotion) {
-        // Spawn meteors every 4-9 seconds; occasionally two at once
-        if (time - lastMeteor > 4000 + Math.random() * 5000) {
-          lastMeteor = time;
-          const count = Math.random() < 0.2 ? 2 : 1;
-          for (let mi = 0; mi < count; mi++) {
-            const goLeft = Math.random() < 0.65;
-            // 145-165° for left-going, 15-35° for right-going
-            const angle = goLeft
-              ? (2.53 + Math.random() * 0.35)
-              : (0.26 + Math.random() * 0.35);
-            const speed = 9 + Math.random() * 10;
-            meteors.push({
-              x: goLeft ? sw * (0.35 + Math.random() * 0.65) : sw * Math.random() * 0.65,
-              y: -20 - Math.random() * 60,
-              vx: Math.cos(angle) * speed,
-              vy: Math.sin(angle) * speed,
-              len: 160 + Math.random() * 220,
-              dur: 800 + Math.random() * 700,
-              age: 0, alpha: 0,
-            });
-          }
-        }
-
-        meteors = meteors.filter(m => m.alpha > 0.005 || m.age < m.dur * 0.5);
-        meteors.forEach(m => {
-          m.x += m.vx; m.y += m.vy; m.age += 16;
-          const p = Math.min(1, m.age / m.dur);
-          m.alpha = p < 0.12 ? p / 0.12 : p > 0.65 ? Math.max(0, (1 - p) / 0.35) : 1;
-
-          if (m.alpha <= 0.005) return;
-          const spd = Math.sqrt(m.vx * m.vx + m.vy * m.vy);
-          const ux = -m.vx / spd, uy = -m.vy / spd;
-          const tx = m.x + ux * m.len, ty = m.y + uy * m.len;
-
-          // Trail gradient: transparent tail → bright head
-          const trail = sc.createLinearGradient(tx, ty, m.x, m.y);
-          trail.addColorStop(0, 'rgba(180,210,255,0)');
-          trail.addColorStop(0.55, `rgba(220,235,255,${m.alpha * 0.28})`);
-          trail.addColorStop(0.85, `rgba(244,245,242,${m.alpha * 0.7})`);
-          trail.addColorStop(1,    `rgba(255,255,255,${m.alpha})`);
-
-          sc.save();
-          sc.beginPath();
-          sc.moveTo(tx, ty); sc.lineTo(m.x, m.y);
-          sc.strokeStyle = trail;
-          sc.lineWidth = 1.8 + m.alpha * 0.8;
-          sc.lineCap = 'round';
-          sc.stroke();
-
-          // Bright glow at the head
-          const gr = sc.createRadialGradient(m.x, m.y, 0, m.x, m.y, 7 * m.alpha);
-          gr.addColorStop(0, `rgba(210,235,255,${m.alpha * 0.9})`);
-          gr.addColorStop(0.4, `rgba(180,215,255,${m.alpha * 0.35})`);
-          gr.addColorStop(1, 'rgba(180,215,255,0)');
-          sc.beginPath(); sc.arc(m.x, m.y, 7 * m.alpha, 0, Math.PI * 2);
-          sc.fillStyle = gr; sc.fill();
-          sc.restore();
-        });
+  function drawDark(time) {
+    const t = time / 1000;
+    sc.fillStyle = '#090b0d'; sc.fillRect(0, 0, sw, sh);
+    starList.forEach(s => {
+      const op = s.base * (reducedMotion ? 1 : 0.62 + 0.38 * Math.sin(t * s.sp + s.ph));
+      if (s.glow) {
+        const g = sc.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r*3.5);
+        g.addColorStop(0, `rgba(244,245,242,${op*0.55})`); g.addColorStop(1, 'rgba(244,245,242,0)');
+        sc.beginPath(); sc.arc(s.x, s.y, s.r*3.5, 0, Math.PI*2); sc.fillStyle = g; sc.fill();
       }
+      sc.beginPath(); sc.arc(s.x, s.y, s.r, 0, Math.PI*2); sc.fillStyle = `rgba(244,245,242,${op})`; sc.fill();
+    });
+    if (!reducedMotion) {
+      if (time - lastMeteor > 1500 + Math.random()*2500) {
+        lastMeteor = time;
+        const n = Math.random() < 0.28 ? 2 : 1;
+        for (let i = 0; i < n; i++) {
+          const left = Math.random() < 0.65;
+          const angle = left ? 2.53 + Math.random()*0.35 : 0.26 + Math.random()*0.35;
+          const spd = 9 + Math.random()*10;
+          meteors.push({ x: left ? sw*(0.35+Math.random()*0.65) : sw*Math.random()*0.65, y: -20-Math.random()*60, vx: Math.cos(angle)*spd, vy: Math.sin(angle)*spd, len: 160+Math.random()*220, dur: 800+Math.random()*700, age: 0, alpha: 0 });
+        }
+      }
+      meteors = meteors.filter(m => m.alpha > 0.005 || m.age < m.dur*0.5);
+      meteors.forEach(m => {
+        m.x += m.vx; m.y += m.vy; m.age += 16;
+        const p = Math.min(1, m.age/m.dur);
+        m.alpha = p < 0.12 ? p/0.12 : p > 0.65 ? Math.max(0, (1-p)/0.35) : 1;
+        if (m.alpha <= 0.005) return;
+        const spd = Math.sqrt(m.vx*m.vx+m.vy*m.vy), ux = -m.vx/spd, uy = -m.vy/spd;
+        const tx = m.x+ux*m.len, ty = m.y+uy*m.len;
+        const trail = sc.createLinearGradient(tx, ty, m.x, m.y);
+        trail.addColorStop(0, 'rgba(180,210,255,0)'); trail.addColorStop(0.55, `rgba(220,235,255,${m.alpha*0.28})`);
+        trail.addColorStop(0.85, `rgba(244,245,242,${m.alpha*0.7})`); trail.addColorStop(1, `rgba(255,255,255,${m.alpha})`);
+        sc.save(); sc.beginPath(); sc.moveTo(tx,ty); sc.lineTo(m.x,m.y);
+        sc.strokeStyle = trail; sc.lineWidth = 1.8+m.alpha*0.8; sc.lineCap = 'round'; sc.stroke();
+        const gr = sc.createRadialGradient(m.x,m.y,0,m.x,m.y,7*m.alpha);
+        gr.addColorStop(0, `rgba(210,235,255,${m.alpha*0.9})`); gr.addColorStop(0.4, `rgba(180,215,255,${m.alpha*0.35})`); gr.addColorStop(1, 'rgba(180,215,255,0)');
+        sc.beginPath(); sc.arc(m.x,m.y,7*m.alpha,0,Math.PI*2); sc.fillStyle = gr; sc.fill(); sc.restore();
+      });
     }
-    starRaf = requestAnimationFrame(drawStarField);
   }
 
-  function resizeStars() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  // ── Light mode: grass & blooming flowers ──────────────────────
+  let blades = [], flowers = [], fallingPetals = [], dotPat = null, lastPetal = 0, prevTheme = null;
+
+  const PETAL_COLORS = ['#ffb8c8','#fff8a0','#d4a8f0','#a8d8f8','#ffffff','#ffd0a0','#ffcce8','#c8f0c0'];
+
+  function buildNature() {
+    blades = []; flowers = []; fallingPetals = []; dotPat = null;
+    const r = () => Math.random();
+    for (let i = 0; i < Math.floor(sw/10); i++)
+      blades.push({ x: r()*sw, h: 28+r()*55, lean: (r()-.5)*.45, ph: r()*Math.PI*2, sp: .5+r()*.8, w: 1.2+r()*1.3, color: `hsl(${102+r()*30},${38+r()*25}%,${20+r()*14}%)`, layer: 0 });
+    for (let i = 0; i < Math.floor(sw/7); i++)
+      blades.push({ x: r()*sw, h: 52+r()*75, lean: (r()-.5)*.38, ph: r()*Math.PI*2, sp: .4+r()*.7, w: 1.8+r()*1.8, color: `hsl(${108+r()*26},${48+r()*28}%,${28+r()*16}%)`, layer: 1 });
+    const n = Math.min(22, Math.floor(sw/80));
+    for (let i = 0; i < n; i++)
+      flowers.push({ x: (i+.5+(r()-.5)*.6)/n*sw, stemH: 55+r()*65, nP: 5+Math.floor(r()*3), pr: 8+r()*9, color: PETAL_COLORS[Math.floor(r()*PETAL_COLORS.length)], ph: r()*Math.PI*2, sp: .3+r()*.4, bloom: 0, bloomStart: .4+r()*2.5, bloomDur: 1.2+r()*1.2, born: null });
+  }
+
+  function easeOut3(t) { return 1-(1-t)*(1-t)*(1-t); }
+
+  function drawBlade(b, t) {
+    const sw_ = Math.sin(t*b.sp+b.ph)*(9+b.h*.08);
+    sc.beginPath(); sc.moveTo(b.x, sh);
+    sc.quadraticCurveTo(b.x+sw_*.4+b.lean*b.h*.4, sh-b.h*.55, b.x+sw_+b.lean*b.h, sh-b.h);
+    sc.strokeStyle = b.color; sc.lineWidth = b.w; sc.lineCap = 'round'; sc.stroke();
+  }
+
+  function drawFlower(f, t) {
+    if (f.born === null) f.born = t;
+    const age = t - f.born;
+    if (age > f.bloomStart && f.bloom < 1) f.bloom = Math.min(1, easeOut3((age-f.bloomStart)/f.bloomDur));
+    const sw_ = Math.sin(t*f.sp+f.ph)*4*(f.stemH/100);
+    const hx = f.x+sw_, hy = sh-f.stemH;
+    sc.beginPath(); sc.moveTo(f.x, sh); sc.quadraticCurveTo(f.x+sw_*.35, sh-f.stemH*.5, hx, hy);
+    sc.strokeStyle = '#5a8a28'; sc.lineWidth = 1.8; sc.lineCap = 'round'; sc.stroke();
+    if (f.bloom < 0.02) {
+      sc.beginPath(); sc.ellipse(hx, hy, 2.5, 5, 0, 0, Math.PI*2); sc.fillStyle = f.color; sc.fill(); return;
+    }
+    const pd = f.pr*1.18*f.bloom;
+    for (let i = 0; i < f.nP; i++) {
+      const a = (i/f.nP)*Math.PI*2 - Math.PI/2;
+      sc.save(); sc.translate(hx+Math.cos(a)*pd, hy+Math.sin(a)*pd); sc.rotate(a+Math.PI/2);
+      sc.beginPath(); sc.ellipse(0, 0, f.pr*f.bloom, f.pr*.52*f.bloom, 0, 0, Math.PI*2);
+      sc.fillStyle = f.color; sc.globalAlpha = .88*f.bloom; sc.fill(); sc.restore();
+    }
+    sc.globalAlpha = 1;
+    sc.beginPath(); sc.arc(hx, hy, 3.5*f.bloom, 0, Math.PI*2); sc.fillStyle = '#e8c030'; sc.fill();
+  }
+
+  function drawLight(time) {
+    const t = time / 1000;
+    sc.fillStyle = '#f5f5f0'; sc.fillRect(0, 0, sw, sh);
+    if (!dotPat) {
+      const tile = document.createElement('canvas'); tile.width = tile.height = 26;
+      const tx = tile.getContext('2d'); tx.fillStyle = 'rgba(60,85,70,0.22)';
+      tx.beginPath(); tx.arc(13, 13, 1, 0, Math.PI*2); tx.fill();
+      dotPat = sc.createPattern(tile, 'repeat');
+    }
+    sc.fillStyle = dotPat; sc.fillRect(0, 0, sw, sh);
+    let g = sc.createRadialGradient(sw*.15,sh*.3,0,sw*.15,sh*.3,sw*.55);
+    g.addColorStop(0,'rgba(10,122,114,0.07)'); g.addColorStop(1,'rgba(10,122,114,0)'); sc.fillStyle=g; sc.fillRect(0,0,sw,sh);
+    g = sc.createRadialGradient(sw*.85,sh*.7,0,sw*.85,sh*.7,sw*.55);
+    g.addColorStop(0,'rgba(74,122,10,0.06)'); g.addColorStop(1,'rgba(74,122,10,0)'); sc.fillStyle=g; sc.fillRect(0,0,sw,sh);
+    sc.lineCap = 'round';
+    blades.filter(b=>b.layer===0).forEach(b=>drawBlade(b,t));
+    flowers.forEach(f=>drawFlower(f,t));
+    blades.filter(b=>b.layer===1).forEach(b=>drawBlade(b,t));
+    if (!reducedMotion && time-lastPetal > 2000+Math.random()*3500) {
+      lastPetal = time;
+      const f = flowers.find(fl=>fl.bloom>0.85);
+      if (f) fallingPetals.push({ x:f.x, y:sh-f.stemH, vx:(Math.random()-.5)*1.3, vy:-.9-Math.random()*.7, color:f.color, r:f.pr*.55, rot:Math.random()*Math.PI*2, age:0 });
+    }
+    fallingPetals = fallingPetals.filter(p=>p.age<1 && p.y>-40);
+    fallingPetals.forEach(p => {
+      p.x+=p.vx+Math.sin(t*.9+p.rot)*.5; p.y+=p.vy; p.vy+=.01; p.rot+=.025; p.age+=.004;
+      const alpha = Math.min(1, (1-p.age)*3);
+      sc.save(); sc.translate(p.x,p.y); sc.rotate(p.rot);
+      sc.beginPath(); sc.ellipse(0,0,p.r,p.r*.5,0,0,Math.PI*2);
+      sc.fillStyle=p.color; sc.globalAlpha=alpha*.82; sc.fill(); sc.restore(); sc.globalAlpha=1;
+    });
+  }
+
+  // ── Unified render loop ───────────────────────────────────────
+  function drawBg(time) {
+    const theme = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    if (theme !== prevTheme) { prevTheme = theme; if (theme === 'light') buildNature(); }
+    if (theme === 'light') drawLight(time); else drawDark(time);
+    bgRaf = requestAnimationFrame(drawBg);
+  }
+
+  function resizeBg() {
+    const dpr = Math.min(window.devicePixelRatio||1, 2);
     sw = window.innerWidth; sh = window.innerHeight;
-    starCanvas.width = Math.floor(sw * dpr);
-    starCanvas.height = Math.floor(sh * dpr);
+    bgCanvas.width = Math.floor(sw*dpr); bgCanvas.height = Math.floor(sh*dpr);
     sc.setTransform(dpr, 0, 0, dpr, 0, 0);
-    buildStars();
+    buildStars(); buildNature();
   }
 
-  window.addEventListener('resize', () => {
-    cancelAnimationFrame(starRaf);
-    resizeStars();
-    starRaf = requestAnimationFrame(drawStarField);
-  }, { passive: true });
-
-  resizeStars();
-  starRaf = requestAnimationFrame(drawStarField);
+  window.addEventListener('resize', () => { cancelAnimationFrame(bgRaf); resizeBg(); bgRaf = requestAnimationFrame(drawBg); }, { passive: true });
+  resizeBg(); bgRaf = requestAnimationFrame(drawBg);
   // ────────────────────────────────────────────────────────────────
 
   const canvas = document.querySelector(".field-canvas");
