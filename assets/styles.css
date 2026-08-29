@@ -1689,7 +1689,7 @@ body {
 }
 
 [data-theme="light"] .hero {
-  background: linear-gradient(160deg, #eef2ef 0%, #f4f4ef 60%, #eef0ea 100%);
+  background: transparent;
 }
 
 [data-theme="light"] .hero::after {
