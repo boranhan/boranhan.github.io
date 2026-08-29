@@ -1686,8 +1686,11 @@ button {
 
 [data-theme="light"] body {
   background-color: var(--bg);
-  background-image: radial-gradient(circle, rgba(80, 100, 90, 0.13) 1px, transparent 1px);
-  background-size: 26px 26px;
+  background-image:
+    radial-gradient(ellipse at 15% 30%, rgba(10, 122, 114, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 70%, rgba(74, 122, 10, 0.06) 0%, transparent 55%),
+    radial-gradient(circle, rgba(60, 85, 70, 0.22) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 26px 26px;
 }
 
 [data-theme="light"] .site-header {
