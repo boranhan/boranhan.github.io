@@ -209,6 +209,92 @@
     });
   }
 
+  // ── Star canvas (all pages, dark mode) ──────────────────────────
+  const starCanvas = document.createElement('canvas');
+  starCanvas.className = 'star-canvas';
+  starCanvas.setAttribute('aria-hidden', 'true');
+  document.body.prepend(starCanvas);
+
+  const sc = starCanvas.getContext('2d');
+  let sw = 0, sh = 0, starList = [], shooters = [], starRaf, lastShot = 0;
+
+  function buildStars() {
+    starList = [];
+    for (let i = 0; i < 160; i++) {
+      starList.push({ x: Math.random() * sw, y: Math.random() * sh, r: 0.4 + Math.random() * 0.9,  base: 0.12 + Math.random() * 0.45, ph: Math.random() * Math.PI * 2, sp: 0.3 + Math.random() * 0.9 });
+    }
+    for (let i = 0; i < 35; i++) {
+      starList.push({ x: Math.random() * sw, y: Math.random() * sh, r: 1.0 + Math.random() * 0.8,  base: 0.3  + Math.random() * 0.4,  ph: Math.random() * Math.PI * 2, sp: 0.2 + Math.random() * 0.5 });
+    }
+    for (let i = 0; i < 12; i++) {
+      starList.push({ x: Math.random() * sw, y: Math.random() * sh, r: 1.8 + Math.random() * 1.0,  base: 0.55 + Math.random() * 0.35, ph: Math.random() * Math.PI * 2, sp: 0.15 + Math.random() * 0.3, glow: true });
+    }
+  }
+
+  function drawStarField(time) {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (!isLight) {
+      const t = time / 1000;
+      sc.fillStyle = '#090b0d';
+      sc.fillRect(0, 0, sw, sh);
+
+      starList.forEach(s => {
+        const tw = reducedMotion ? 1 : 0.62 + 0.38 * Math.sin(t * s.sp + s.ph);
+        const op = s.base * tw;
+        if (s.glow) {
+          const g = sc.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r * 3.5);
+          g.addColorStop(0, `rgba(244,245,242,${op * 0.55})`);
+          g.addColorStop(1, 'rgba(244,245,242,0)');
+          sc.beginPath(); sc.arc(s.x, s.y, s.r * 3.5, 0, Math.PI * 2);
+          sc.fillStyle = g; sc.fill();
+        }
+        sc.beginPath(); sc.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        sc.fillStyle = `rgba(244,245,242,${op})`; sc.fill();
+      });
+
+      if (!reducedMotion) {
+        if (time - lastShot > 10000 + Math.random() * 14000) {
+          lastShot = time;
+          const angle = (15 + Math.random() * 25) * Math.PI / 180;
+          shooters.push({ x: Math.random() * sw * 0.7, y: Math.random() * sh * 0.45, vx: Math.cos(angle) * (4 + Math.random() * 3), vy: Math.sin(angle) * (4 + Math.random() * 3), len: 90 + Math.random() * 110, life: 0 });
+        }
+        shooters = shooters.filter(s => s.life < 1);
+        shooters.forEach(s => {
+          s.x += s.vx; s.y += s.vy;
+          s.life = Math.min(1, s.life + 0.025);
+          const fade = s.life < 0.3 ? s.life / 0.3 : (1 - s.life) / 0.7;
+          const g = sc.createLinearGradient(s.x - s.vx * s.len / 5, s.y - s.vy * s.len / 5, s.x, s.y);
+          g.addColorStop(0, 'rgba(244,245,242,0)');
+          g.addColorStop(1, `rgba(244,245,242,${fade * 0.85})`);
+          sc.beginPath();
+          sc.moveTo(s.x - s.vx * s.len / 5, s.y - s.vy * s.len / 5);
+          sc.lineTo(s.x, s.y);
+          sc.strokeStyle = g; sc.lineWidth = 1.4; sc.stroke();
+        });
+      }
+    }
+    starRaf = requestAnimationFrame(drawStarField);
+  }
+
+  function resizeStars() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    sw = window.innerWidth; sh = window.innerHeight;
+    starCanvas.width = Math.floor(sw * dpr);
+    starCanvas.height = Math.floor(sh * dpr);
+    sc.setTransform(dpr, 0, 0, dpr, 0, 0);
+    buildStars();
+  }
+
+  window.addEventListener('resize', () => {
+    cancelAnimationFrame(starRaf);
+    resizeStars();
+    starRaf = requestAnimationFrame(drawStarField);
+  }, { passive: true });
+
+  resizeStars();
+  starRaf = requestAnimationFrame(drawStarField);
+  // ────────────────────────────────────────────────────────────────
+
   const canvas = document.querySelector(".field-canvas");
   if (!canvas) return;
 
