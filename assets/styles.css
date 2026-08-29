@@ -1688,6 +1688,10 @@ button {
   text-shadow: none;
 }
 
+[data-theme="light"] .hero-summary {
+  color: var(--ink);
+}
+
 [data-theme="light"] .site-footer {
   background: #e8e8e3;
 }
