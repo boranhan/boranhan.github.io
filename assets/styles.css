@@ -12,7 +12,7 @@
   --max: 1180px;
   --gutter: clamp(20px, 5vw, 72px);
   --sans: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --serif: "Playfair Display", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
 }
 
 * {
@@ -381,7 +381,8 @@ button {
   font-family: var(--serif);
   font-size: 126px;
   font-weight: 400;
-  line-height: 0.9;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
 }
 
 .hero h1 span {
@@ -490,6 +491,7 @@ button {
 .section-intro h2 {
   max-width: 830px;
   font-size: 70px;
+  letter-spacing: -0.02em;
 }
 
 .section-intro h2 em {
@@ -509,6 +511,7 @@ button {
   overflow: hidden;
   border: 1px solid var(--line);
   background: var(--bg-raised);
+  transition: border-color 250ms ease, box-shadow 250ms ease;
 }
 
 .research-card:nth-child(1),
@@ -545,6 +548,15 @@ button {
   transform: none;
   filter: none;
 }
+
+.research-card:hover {
+  border-color: rgba(101, 217, 209, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+}
+
+.research-grid .research-card.reveal:nth-child(2) { transition-delay: 80ms; }
+.research-grid .research-card.reveal:nth-child(3) { transition-delay: 160ms; }
+.research-grid .research-card.reveal:nth-child(4) { transition-delay: 240ms; }
 
 .card-body {
   padding: 24px;
@@ -859,6 +871,7 @@ button {
 .page-hero {
   padding: 160px var(--gutter) 80px;
   border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(101, 217, 209, 0.04) 0%, transparent 55%);
 }
 
 .page-hero-inner {
@@ -869,6 +882,8 @@ button {
 .page-title {
   max-width: 980px;
   font-size: 72px;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
 }
 
 .page-title em {
@@ -1186,6 +1201,7 @@ button {
 .manifesto {
   color: #e1e3df;
   font-size: 52px;
+  letter-spacing: -0.02em;
 }
 
 .manifesto em {
@@ -1247,6 +1263,11 @@ button {
   min-height: 150px;
   padding: 27px;
   background: var(--bg);
+  transition: background 200ms ease;
+}
+
+.recognition-item:hover {
+  background: var(--bg-raised);
 }
 
 .recognition-item strong {
@@ -1592,8 +1613,10 @@ button {
 }
 
 .reveal {
-  opacity: 1;
-  transform: none;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 550ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 550ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.is-visible {
