@@ -12,7 +12,7 @@
   --max: 1180px;
   --gutter: clamp(20px, 5vw, 72px);
   --sans: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --serif: "Playfair Display", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
 }
 
 * {
