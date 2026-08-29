@@ -216,7 +216,7 @@
   document.body.prepend(starCanvas);
 
   const sc = starCanvas.getContext('2d');
-  let sw = 0, sh = 0, starList = [], shooters = [], starRaf, lastShot = 0;
+  let sw = 0, sh = 0, starList = [], meteors = [], starRaf, lastMeteor = -5000;
 
   function buildStars() {
     starList = [];
@@ -253,23 +253,63 @@
       });
 
       if (!reducedMotion) {
-        if (time - lastShot > 10000 + Math.random() * 14000) {
-          lastShot = time;
-          const angle = (15 + Math.random() * 25) * Math.PI / 180;
-          shooters.push({ x: Math.random() * sw * 0.7, y: Math.random() * sh * 0.45, vx: Math.cos(angle) * (4 + Math.random() * 3), vy: Math.sin(angle) * (4 + Math.random() * 3), len: 90 + Math.random() * 110, life: 0 });
+        // Spawn meteors every 4-9 seconds; occasionally two at once
+        if (time - lastMeteor > 4000 + Math.random() * 5000) {
+          lastMeteor = time;
+          const count = Math.random() < 0.2 ? 2 : 1;
+          for (let mi = 0; mi < count; mi++) {
+            const goLeft = Math.random() < 0.65;
+            // 145-165° for left-going, 15-35° for right-going
+            const angle = goLeft
+              ? (2.53 + Math.random() * 0.35)
+              : (0.26 + Math.random() * 0.35);
+            const speed = 9 + Math.random() * 10;
+            meteors.push({
+              x: goLeft ? sw * (0.35 + Math.random() * 0.65) : sw * Math.random() * 0.65,
+              y: -20 - Math.random() * 60,
+              vx: Math.cos(angle) * speed,
+              vy: Math.sin(angle) * speed,
+              len: 160 + Math.random() * 220,
+              dur: 800 + Math.random() * 700,
+              age: 0, alpha: 0,
+            });
+          }
         }
-        shooters = shooters.filter(s => s.life < 1);
-        shooters.forEach(s => {
-          s.x += s.vx; s.y += s.vy;
-          s.life = Math.min(1, s.life + 0.025);
-          const fade = s.life < 0.3 ? s.life / 0.3 : (1 - s.life) / 0.7;
-          const g = sc.createLinearGradient(s.x - s.vx * s.len / 5, s.y - s.vy * s.len / 5, s.x, s.y);
-          g.addColorStop(0, 'rgba(244,245,242,0)');
-          g.addColorStop(1, `rgba(244,245,242,${fade * 0.85})`);
+
+        meteors = meteors.filter(m => m.alpha > 0.005 || m.age < m.dur * 0.5);
+        meteors.forEach(m => {
+          m.x += m.vx; m.y += m.vy; m.age += 16;
+          const p = Math.min(1, m.age / m.dur);
+          m.alpha = p < 0.12 ? p / 0.12 : p > 0.65 ? Math.max(0, (1 - p) / 0.35) : 1;
+
+          if (m.alpha <= 0.005) return;
+          const spd = Math.sqrt(m.vx * m.vx + m.vy * m.vy);
+          const ux = -m.vx / spd, uy = -m.vy / spd;
+          const tx = m.x + ux * m.len, ty = m.y + uy * m.len;
+
+          // Trail gradient: transparent tail → bright head
+          const trail = sc.createLinearGradient(tx, ty, m.x, m.y);
+          trail.addColorStop(0, 'rgba(180,210,255,0)');
+          trail.addColorStop(0.55, `rgba(220,235,255,${m.alpha * 0.28})`);
+          trail.addColorStop(0.85, `rgba(244,245,242,${m.alpha * 0.7})`);
+          trail.addColorStop(1,    `rgba(255,255,255,${m.alpha})`);
+
+          sc.save();
           sc.beginPath();
-          sc.moveTo(s.x - s.vx * s.len / 5, s.y - s.vy * s.len / 5);
-          sc.lineTo(s.x, s.y);
-          sc.strokeStyle = g; sc.lineWidth = 1.4; sc.stroke();
+          sc.moveTo(tx, ty); sc.lineTo(m.x, m.y);
+          sc.strokeStyle = trail;
+          sc.lineWidth = 1.8 + m.alpha * 0.8;
+          sc.lineCap = 'round';
+          sc.stroke();
+
+          // Bright glow at the head
+          const gr = sc.createRadialGradient(m.x, m.y, 0, m.x, m.y, 7 * m.alpha);
+          gr.addColorStop(0, `rgba(210,235,255,${m.alpha * 0.9})`);
+          gr.addColorStop(0.4, `rgba(180,215,255,${m.alpha * 0.35})`);
+          gr.addColorStop(1, 'rgba(180,215,255,0)');
+          sc.beginPath(); sc.arc(m.x, m.y, 7 * m.alpha, 0, Math.PI * 2);
+          sc.fillStyle = gr; sc.fill();
+          sc.restore();
         });
       }
     }
