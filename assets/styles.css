@@ -1652,7 +1652,7 @@ button {
 /* ─── Light theme ──────────────────────────────────────── */
 
 [data-theme="light"] {
-  --bg: #f7f7f2;
+  --bg: #f5f5f0;
   --bg-raised: #ffffff;
   --bg-soft: #eeede8;
   --ink: #0e1210;
@@ -1665,9 +1665,15 @@ button {
   color-scheme: light;
 }
 
+[data-theme="light"] body {
+  background-color: var(--bg);
+  background-image: radial-gradient(circle, rgba(80, 100, 90, 0.13) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
 [data-theme="light"] .site-header {
   border-bottom-color: rgba(14, 18, 16, 0.1);
-  background: rgba(247, 247, 242, 0.92);
+  background: rgba(245, 245, 240, 0.92);
 }
 
 [data-theme="light"] .field-canvas {
