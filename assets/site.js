@@ -384,7 +384,7 @@
   let frame;
 
   const equations = [
-    { lines: ["Attn(Q,K,V) =", "softmax(QK^T/√d_k) · V"] },
+    { lines: ["A = softmax(QK^T/√d_k)", "· V"] },
     { lines: ["L_{CE} = −∑_i y_i", "log p_θ(i|x)"] },
     { lines: ["r_t = π_θ(a_t|s_t)", "/ π_{old}(a_t|s_t)"] },
     { lines: ["L_{PPO} = E[min(r_t A_t,", "clip(r_t,1−ε,1+ε)A_t)]"] },
@@ -398,8 +398,8 @@
     { lines: ["D_{KL}(p||q) = ∑_x p(x)", "log[p(x)/q(x)]"] },
     { lines: ["H(π) = −∑_a π(a|s)", "log π(a|s)"] },
     { lines: ["p(x_t|x_{<t}) =", "softmax(W h_t)"] },
-    { lines: ["h_l = LN(h_{l-1} +", "Attn(h_{l-1}))"] },
-    { lines: ["FFN(x) = W₂ σ(", "W₁x + b₁) + b₂"] },
+    { lines: ["∂L/∂W_l = δ_l", "x_{l-1}^T"] },
+    { lines: ["f(x) = W₂ σ(", "W₁x + b₁) + b₂"] },
     { lines: ["W' = W + (α/r) BA"] },
     { lines: ["L_{NCE} = −log", "exp(s_+/τ) / ∑_j exp(s_j/τ)"] },
     { lines: ["V*(s) = max_a E[", "r + γ V*(s')]"] },
@@ -412,8 +412,8 @@
     { lines: ["p(y|x,D) = ∫", "p(y|x,w) p(w|D) dw"] },
     { lines: ["μ = 1/N ∑_i x_i", "σ² = 1/N ∑_i(x_i−μ)²"] },
     { lines: ["z_i = (x_i − μ) /", "√(σ² + ε)"] },
-    { lines: ["MHA(Q,K,V) =", "Concat(h₁,…,h_h) W_o"] },
-    { lines: ["h_i = Attn(QW_i^Q,", "KW_i^K, VW_i^V)"] },
+    { lines: ["O = [h₁, …, h_h]", "· W_o"] },
+    { lines: ["h_i = softmax(QW_i^Q(KW_i^K)^T", "/√d_k) · VW_i^V"] },
     { lines: ["p_θ(y|x) =", "∏_t p(y_t|y_{<t}, x)"] },
     { lines: ["R(θ) = E_{τ~π}", "∑_t γ^t r_t"] },
   ];
