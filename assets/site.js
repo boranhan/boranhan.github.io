@@ -420,6 +420,72 @@
 
   const chalkColors = ["#f4f5f2", "#e7eeeb", "#cfe4df", "#dbe7bd"];
 
+  const SUB_SCALE = 0.62;
+  const SUB_DROP  = 0.35;  // fraction of fontSize — subscript top offset below base top
+  const SUP_RISE  = 0.38;  // fraction of fontSize — superscript top offset above base top
+
+  function parseMathTokens(text) {
+    const tokens = [];
+    let i = 0;
+    while (i < text.length) {
+      const ch = text[i];
+      if ((ch === '_' || ch === '^') && i + 1 < text.length) {
+        const type = ch === '_' ? 'sub' : 'sup';
+        i++;
+        let group = '';
+        if (text[i] === '{') {
+          i++;
+          while (i < text.length && text[i] !== '}') group += text[i++];
+          i++;
+        } else {
+          group = text[i++];
+        }
+        tokens.push({ type, text: group });
+      } else {
+        if (tokens.length && tokens[tokens.length - 1].type === 'base') {
+          tokens[tokens.length - 1].text += ch;
+        } else {
+          tokens.push({ type: 'base', text: ch });
+        }
+        i++;
+      }
+    }
+    return tokens;
+  }
+
+  function mathTextWidth(ctx, text, fontSize, fontFamily) {
+    const tokens = parseMathTokens(text);
+    let w = 0;
+    tokens.forEach(tok => {
+      if (tok.type === 'base') {
+        ctx.font = `italic 500 ${fontSize}px ${fontFamily}`;
+      } else {
+        ctx.font = `italic 500 ${Math.round(fontSize * SUB_SCALE)}px ${fontFamily}`;
+      }
+      w += ctx.measureText(tok.text).width;
+    });
+    return w;
+  }
+
+  function drawMathLine(ctx, text, x, y, fontSize, fontFamily) {
+    const tokens = parseMathTokens(text);
+    let cx = x;
+    tokens.forEach(tok => {
+      if (tok.type === 'base') {
+        ctx.font = `italic 500 ${fontSize}px ${fontFamily}`;
+        ctx.fillText(tok.text, cx, y);
+        cx += ctx.measureText(tok.text).width;
+      } else {
+        const subSize = Math.round(fontSize * SUB_SCALE);
+        ctx.font = `italic 500 ${subSize}px ${fontFamily}`;
+        const dy = tok.type === 'sub' ? fontSize * SUB_DROP : -(fontSize * SUP_RISE);
+        ctx.fillText(tok.text, cx, y + dy);
+        cx += ctx.measureText(tok.text).width;
+      }
+    });
+    return cx - x;
+  }
+
   function seededRandom(seed) {
     let value = seed >>> 0;
     return () => {
@@ -453,12 +519,10 @@
           ? '"URW Chancery L", "Comic Sans MS", cursive'
           : 'Georgia, "Times New Roman", serif';
 
-      context.font = `italic 500 ${preferredSize}px ${fontFamily}`;
       const measuredWidth = Math.max(
-        ...equation.lines.map((line) => context.measureText(line).width)
+        ...equation.lines.map((line) => mathTextWidth(context, line, preferredSize, fontFamily))
       );
       const fontSize = Math.max(compact ? 9.5 : 12, preferredSize * Math.min(1, maxWidth / measuredWidth));
-      context.font = `italic 500 ${fontSize}px ${fontFamily}`;
 
       return {
         lines: equation.lines,
@@ -473,7 +537,7 @@
         fontSize,
         lineHeight: fontSize * 1.22,
         textWidth: Math.max(
-          ...equation.lines.map((line) => context.measureText(line).width)
+          ...equation.lines.map((line) => mathTextWidth(context, line, fontSize, fontFamily))
         ),
         decorator: index % 6,
       };
@@ -523,7 +587,6 @@
       equation.rotation +
         (reducedMotion ? 0 : Math.sin(seconds * 0.035 + equation.phase) * 0.006)
     );
-    context.font = `italic 500 ${equation.fontSize}px ${equation.fontFamily}`;
     context.textBaseline = "top";
     context.fillStyle = equation.color;
     context.lineCap = "round";
@@ -532,9 +595,9 @@
     equation.lines.forEach((line, lineIndex) => {
       const y = lineIndex * equation.lineHeight;
       context.globalAlpha = opacity * 0.92;
-      context.fillText(line, 0, y);
+      drawMathLine(context, line, 0, y, equation.fontSize, equation.fontFamily);
       context.globalAlpha = opacity * 0.2;
-      context.fillText(line, 0.7, y - 0.4);
+      drawMathLine(context, line, 0.7, y - 0.4, equation.fontSize, equation.fontFamily);
     });
 
     context.strokeStyle = equation.color;
