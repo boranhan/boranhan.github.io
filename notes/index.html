@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Locked</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<style>
+:root{color-scheme:light dark}body{margin:0;min-height:100vh;display:grid;place-items:center;font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#f7f7f8;color:#17181c}
+@media(prefers-color-scheme:dark){body{background:#0e1013;color:#e8eaee}.card{background:#161a20 !important;border-color:#262b33 !important}input{background:#0e1013 !important;color:#e8eaee !important;border-color:#262b33 !important}}
+.card{width:min(420px,92vw);background:#fff;border:1px solid #e6e7eb;border-radius:16px;padding:28px;box-shadow:0 8px 24px -12px rgba(16,24,40,.18)}
+.logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#ffd500,#ff7000 55%,#e10500);display:grid;place-items:center;color:#fff;font-weight:900;margin-bottom:12px}
+h1{font-size:18px;margin:0 0 4px}p{margin:0 0 16px;color:#7b8190;font-size:13.5px}
+input[type=password]{width:100%;box-sizing:border-box;height:44px;padding:0 12px;border-radius:10px;border:1px solid #e6e7eb;font-size:16px;outline:none}
+input:focus{border-color:#f26b1d;box-shadow:0 0 0 4px #ffd8c2}
+label.rem{display:flex;gap:8px;align-items:center;margin:12px 0 16px;font-size:13px;color:#4b4f58}
+button{width:100%;height:44px;border:0;border-radius:10px;background:#f26b1d;color:#fff;font-weight:700;font-size:15px;cursor:pointer}button:disabled{opacity:.6}
+.err{color:#dc2626;font-size:13px;min-height:18px;margin-top:10px}
+</style></head><body>
+<form class="card" id="f"><div class="logo">M</div><h1>This page is encrypted</h1><p>Enter the passphrase to decrypt it in your browser. Nothing is sent anywhere.</p>
+<input id="pw" type="password" autocomplete="current-password" placeholder="Passphrase" autofocus>
+<label class="rem"><input type="checkbox" id="rem" checked> Remember on this device</label>
+<button id="go">Unlock</button><div class="err" id="err"></div></form>
+<script id="payload" type="application/json">{"v": 1, "kdf": "PBKDF2-SHA256", "iter": 600000, "salt": "1hzV/dOpC19OXVZdyKai8A==", "nonce": "YRJcbJQQU0Kzrf/L", "ct": "Mv+74eRbjBKfir//vvRCsgy8Mb/mvIXUHv6AFHvQ04K9rw/poJfPHebxgwcOa30OI78S9mzaqbivmvmS+cmEM0Tja/M4vhDduInXVyD9Z0AK6pTRWjDs4MIop3EvSMTczqKMSPuUCiXBGRHVSR/gLqRAQDZm3FE0YskpArcr/jezJ4CR/Jjue589VN6xFcUPktLeQ42M1pVmjr+xMdxzc8OH//TbC3VAirlTMaI2x4qPYivej2Ys13BUA5WJRgPFgStVBo5fHXiAgIY6ZRvQ9heBOSwcQns3WAtOEtXI94NBFGk4SvJzZTHAiSm9YgWbNekyaefdVAY2nu+1nglLWHV8tYQcPhk3quPEKUamWaYKb/IomhzeV285cZI8RSiAamI1tWNdP5S/qGqxh9dZG7gq5y1FhUjQM2ngk4zsOhxaKs13aWbzg0MZjxPdhuxmSvvnUOlJYkuRLniuNXmpfpb0uWH+cjn2Fi1n/5beEnXADFFNpq9+oraXJHZnotXPlzfKPorGaymtWifrstYGxC33ovGJB+Sv4A+h0OS2t806rCZnnU2SrjoQZEt3qooOc2GR9ZUYe01jwScEjQPswWRrNK0nwwqrPJo71GH4GmnXa+aN47ST8bm0G90wJnTsZC39qVKHhCJ6cXbfEe/q1bYxB9SZ3LV26q3WMsC0VdnnvHy9+ZHM7IzHBJzMnkcPdTtNQn+ho2ysh1wLZvpg+rRtGm897+/M1+B7Xif8jI+u4ZZMkLrVwLddHTEckPryaHJqy5iSd80qWHmmE+ev+Wv0nzdNak6SisBf5tyIV0b3xOCVtILmYTzfMJZ2EWZAEv1VMQ+FtEAaJ1EB21LneDjlrGoE0+EVpxT7le0bm4aTpfUVmK9wgDABx+C2WFa2Sgh9z5PL+NW1TEPzILu6Au4zhBhAKlpnbD9LAcMFuebt0Ki8oi2ZjILaSJAgrznOtt0L1JPNHUj/1t96BCv2xAIZZjeU3vZdBrZpmkP5WLbHPr0gkoq9TPf6rDfG5LkPogqqNyeBcpM6RL6aDOMo1Kh+gNbWKoRxaVsa7Eoa7kQ5Lr1spWaKW5QnYlzggylTaJ99aASnKkF9R3SUKfSaNLf6l36YMlGgCWXZj1qTTt5lGkqQzGhd57kaQ8Rz5q0dAR+nfSuBvprX8aSxNRc55uqf7NL+r+rf+UdWD4zW/fVsEjt7MCuyUrCA1fphYQvKhvAkGFJ6l5oFgu8DoIVBFp2TB6uNFwPUgohZ6TFduHZnO2Bt+DejCVTC6WTcyTdo3cN+3RUMgG9kZIBCiqZ2VgGFm5lhCJQkvbgON3+hBwrJbR/txA+3OpIC3IEJgmO9AEqL5eXEx8HlsM7o/STMq9Vo8rE8u9Oa/W0meg4RVOU0WUnSp64me8L+xDRnRC3P/XgqUv4Nm5kT7WIzzn1eQo7p/0es+CXwSmP5tUh8LJGTpKlBj8mUevOhYLGmZFRZ4DobG+jU7buo0gUO4GllAIfgTTzC9l6buzPpukVmwFuSFkzsK9o96wPK9EFexLSebkJ2BmFoubtmcehSgDRtUKl2gz1FtLgFFD1pBqPn9+RYmewKDHaulHnaKTnaJ+8F0zcEwjG09IMZXodFC+aTd55JPH9xy7DWBdHrHJk0eogqwpIMJKTFLQUFRWVxl8+RAcyRlolNKwInNUBkoYC7JMXV6wO0Zb+OoTAUYYjj4BjEbswHhvPHnA=="}</script>
+<script>
+(async()=>{
+const P=JSON.parse(document.getElementById('payload').textContent);
+const b=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+const KEY='notes-key';
+async function decryptWith(rawKey){const k=await crypto.subtle.importKey('raw',rawKey,'AES-GCM',false,['decrypt']);
+ const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b(P.nonce)},k,b(P.ct));return new TextDecoder().decode(pt);}
+function show(html){document.open();document.write(html);document.close();}
+async function derive(pw){const base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveBits']);
+ return new Uint8Array(await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt:b(P.salt),iterations:P.iter},base,256));}
+const saved=localStorage.getItem(KEY);
+if(saved){try{show(await decryptWith(b(saved)));return;}catch(e){localStorage.removeItem(KEY);}}
+const f=document.getElementById('f'),err=document.getElementById('err'),go=document.getElementById('go');
+f.onsubmit=async e=>{e.preventDefault();err.textContent='';go.disabled=true;go.textContent='Deriving key…';
+ try{const raw=await derive(document.getElementById('pw').value);const html=await decryptWith(raw);
+  if(document.getElementById('rem').checked)localStorage.setItem(KEY,btoa(String.fromCharCode(...raw)));show(html);}
+ catch(e){err.textContent='Wrong passphrase.';go.disabled=false;go.textContent='Unlock';}};
+})();
+</script></body></html>
