@@ -111,7 +111,7 @@
     function getPhotoDetails(button) {
       const location = button.dataset.location;
       const date = button.dataset.date;
-      const series = button.dataset.series || (location === "Iceland" ? "Fire & Ice" : location);
+      const series = button.dataset.series || location;
       const context = series === location ? date : `${location} / ${date}`;
       const metadata = [
         button.dataset.camera,
